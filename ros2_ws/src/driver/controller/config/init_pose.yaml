@@ -1,0 +1,8 @@
+init_pose:
+  ros__parameters:
+    id1: 0
+    id2: 0
+    id3: 0
+    id4: 0
+
+

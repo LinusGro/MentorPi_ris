@@ -1,0 +1,100 @@
+[0.018s] Invoking command in '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ro01/workspace/ros2_ws/install/sdk:/home/ro01/workspace/ros2_ws/install/ros_robot_controller:/home/ro01/workspace/ros2_ws/install/peripherals:/home/ro01/workspace/ros2_ws/install/mentorpi_description:/home/ro01/workspace/ros2_ws/install/controller:/home/ro01/workspace/ros2_ws/install/calibration:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node -DCMAKE_INSTALL_PREFIX=/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node
+[0.534s] -- The C compiler identification is GNU 13.3.0
+[0.917s] -- The CXX compiler identification is GNU 13.3.0
+[0.967s] -- Detecting C compiler ABI info
+[1.178s] -- Detecting C compiler ABI info - done
+[1.194s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.200s] -- Detecting C compile features
+[1.201s] -- Detecting C compile features - done
+[1.228s] -- Detecting CXX compiler ABI info
+[1.434s] -- Detecting CXX compiler ABI info - done
+[1.449s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.449s] -- Detecting CXX compile features
+[1.449s] -- Detecting CXX compile features - done
+[1.451s] --  * Release Mode
+[1.451s] -- * Found ROS2 jazzy
+[1.451s] [33mCMake Warning at CMakeLists.txt:70 (message):
+[1.451s]   ROS2 jazzy is not officially supported by this package.  Correct working is
+[1.451s]   not guarantee.
+[1.451s] 
+[1.451s] [0m
+[1.476s] -- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[1.776s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[2.102s] -- Found rclcpp: 28.1.5 (/opt/ros/jazzy/share/rclcpp/cmake)
+[2.264s] -- Found rosidl_generator_c: 4.6.4 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[2.306s] -- Found rosidl_generator_cpp: 4.6.4 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[2.369s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.439s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.732s] -- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[2.746s] -- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[3.016s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[3.055s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[3.096s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[3.328s] -- Found rclcpp_components: 28.1.5 (/opt/ros/jazzy/share/rclcpp_components/cmake)
+[3.445s] -- Found rclcpp_lifecycle: 28.1.5 (/opt/ros/jazzy/share/rclcpp_lifecycle/cmake)
+[3.520s] -- Found ldlidar_component: 0.2.0 (/home/ro01/workspace/ros2_ws/install/ldlidar_component/share/ldlidar_component/cmake)
+[4.376s] -- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)
+[4.378s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[4.379s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[4.551s] -- Found ament_lint_auto: 0.17.1 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[4.941s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[5.173s] -- Found PythonExtra: /usr/bin/python3  
+[5.188s] -- Added test 'copyright' to check source files copyright and LICENSE
+[5.199s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[5.199s] -- Configured cppcheck include dirs: 
+[5.200s] -- Configured cppcheck exclude dirs and/or files: 
+[5.209s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[5.209s] -- Configured cpplint exclude dirs and/or files: 
+[5.213s] -- Added test 'flake8' to check Python code syntax and style conventions
+[5.213s] -- Configured 'flake8' exclude dirs and/or files: 
+[5.216s] -- Added test 'lint_cmake' to check CMake code style
+[5.219s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[5.229s] -- Added test 'uncrustify' to check C / C++ code style
+[5.229s] -- Configured uncrustify additional arguments: 
+[5.249s] -- Added test 'xmllint' to check XML markup files
+[5.255s] -- Configuring done (5.2s)
+[5.392s] -- Generating done (0.1s)
+[5.402s] -- Build files have been written to: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node
+[5.428s] Invoked command in '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ro01/workspace/ros2_ws/install/sdk:/home/ro01/workspace/ros2_ws/install/ros_robot_controller:/home/ro01/workspace/ros2_ws/install/peripherals:/home/ro01/workspace/ros2_ws/install/mentorpi_description:/home/ro01/workspace/ros2_ws/install/controller:/home/ro01/workspace/ros2_ws/install/calibration:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node -DCMAKE_INSTALL_PREFIX=/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node
+[5.430s] Invoking command in '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ro01/workspace/ros2_ws/install/sdk:/home/ro01/workspace/ros2_ws/install/ros_robot_controller:/home/ro01/workspace/ros2_ws/install/peripherals:/home/ro01/workspace/ros2_ws/install/mentorpi_description:/home/ro01/workspace/ros2_ws/install/controller:/home/ro01/workspace/ros2_ws/install/calibration:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node -- -j4 -l4
+[5.540s] [ 50%] [32mBuilding CXX object CMakeFiles/ldlidar_node.dir/src/ldlidar_container_node.cpp.o[0m
+[11.524s] [100%] [32m[1mLinking CXX executable ldlidar_node[0m
+[12.168s] [100%] Built target ldlidar_node
+[12.193s] Invoked command in '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ro01/workspace/ros2_ws/install/sdk:/home/ro01/workspace/ros2_ws/install/ros_robot_controller:/home/ro01/workspace/ros2_ws/install/peripherals:/home/ro01/workspace/ros2_ws/install/mentorpi_description:/home/ro01/workspace/ros2_ws/install/controller:/home/ro01/workspace/ros2_ws/install/calibration:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node -- -j4 -l4
+[12.213s] Invoking command in '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ro01/workspace/ros2_ws/install/sdk:/home/ro01/workspace/ros2_ws/install/ros_robot_controller:/home/ro01/workspace/ros2_ws/install/peripherals:/home/ro01/workspace/ros2_ws/install/mentorpi_description:/home/ro01/workspace/ros2_ws/install/controller:/home/ro01/workspace/ros2_ws/install/calibration:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node
+[12.231s] -- Install configuration: "Release"
+[12.231s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/lib/ldlidar_node/ldlidar_node
+[12.232s] -- Set non-toolchain portion of runtime path of "/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/lib/ldlidar_node/ldlidar_node" to ""
+[12.232s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params
+[12.232s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params/slam_toolbox.yaml
+[12.238s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params/lifecycle_mgr.yaml
+[12.238s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params/lifecycle_mgr_slam.yaml
+[12.239s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params/ldlidar.yaml
+[12.240s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/config
+[12.240s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/config/ldlidar_slam.rviz
+[12.240s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/config/ldlidar.rviz
+[12.241s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/urdf
+[12.241s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/urdf/ldlidar_descr.urdf.xml
+[12.241s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/urdf/model
+[12.242s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/urdf/model/LD19.stl
+[12.267s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch
+[12.267s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch/ldlidar_with_mgr.launch.py
+[12.267s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch/ldlidar.launch.py
+[12.267s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch/ldlidar_rviz2.launch.py
+[12.268s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch/ldlidar_slam.launch.py
+[12.269s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ament_index/resource_index/package_run_dependencies/ldlidar_node
+[12.269s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ament_index/resource_index/parent_prefix_path/ldlidar_node
+[12.269s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/environment/ament_prefix_path.sh
+[12.270s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/environment/ament_prefix_path.dsv
+[12.270s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/environment/path.sh
+[12.270s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/environment/path.dsv
+[12.270s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/local_setup.bash
+[12.271s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/local_setup.sh
+[12.271s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/local_setup.zsh
+[12.271s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/local_setup.dsv
+[12.271s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/package.dsv
+[12.272s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ament_index/resource_index/packages/ldlidar_node
+[12.272s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/cmake/ldlidar_nodeConfig.cmake
+[12.272s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/cmake/ldlidar_nodeConfig-version.cmake
+[12.273s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/package.xml
+[12.276s] Invoked command in '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ro01/workspace/ros2_ws/install/sdk:/home/ro01/workspace/ros2_ws/install/ros_robot_controller:/home/ro01/workspace/ros2_ws/install/peripherals:/home/ro01/workspace/ros2_ws/install/mentorpi_description:/home/ro01/workspace/ros2_ws/install/controller:/home/ro01/workspace/ros2_ws/install/calibration:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node

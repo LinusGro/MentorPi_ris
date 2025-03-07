@@ -1,0 +1,216 @@
+<?xml version="1.0" ?>
+<robot name="mecanum" xmlns:xacro="http://ros.org/wiki/xacro">
+  <!-- 定义黑色材质 -->
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+  
+  <link name="imu_link"/>
+  
+  <joint name="imu_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+    <origin xyz="0 0 0" rpy="0 0 -1.57"/>
+  </joint>
+  
+  <link name="base_footprint"/>
+  
+  <joint name="base_footprint_to_base_link" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.07" rpy="0 0 0"/>
+  </joint>
+  <link name="base_link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="7.82634169708696E-05 3.66518389137982E-05 0.0068167426737893"/>
+      <mass value="0.080358044299185"/>
+      <inertia ixx="9.92047502462735E-05" ixy="3.20099144678921E-08" ixz="1.15869166655817E-05" iyy="0.000292461515602123" iyz="-2.92890751882614E-08" izz="0.000367604260834833"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mentorpi_description/meshes/mecanum/base_link.STL"/>
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mentorpi_description/meshes/mecanum/base_link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  
+  
+  <link name="wheel_lf_Link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="6.23194347770945E-05 -0.00574614971695361 2.98597149463314E-05"/>
+      <mass value="0.0378743634664218"/>
+      <inertia ixx="3.67678518315829E-06" ixy="-1.42189561270372E-09" ixz="-1.20320324868622E-08" iyy="5.81008995754212E-06" iyz="1.72329758812212E-09" izz="3.67939460898329E-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mentorpi_description/meshes/mecanum/wheel_lf_Link.STL"/>
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mentorpi_description/meshes/mecanum/wheel_lf_Link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel_lf_Joint" type="continuous">
+    <origin rpy="0 0 0" xyz="0.067052 0.07591 -0.018408"/>
+    <parent link="base_link"/>
+    <child link="wheel_lf_Link"/>
+    <axis xyz="0.00012228 1 -4.0642E-05"/>
+  </joint>
+  <link name="wheel_rf_Link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="6.22118237483121E-05 0.00574626671891662 2.98167804906255E-05"/>
+      <mass value="0.0378687944527435"/>
+      <inertia ixx="3.67635322071944E-06" ixy="1.49075106320551E-09" ixz="-1.20440562033349E-08" iyy="5.80905053329656E-06" iyz="-1.7316728972649E-09" izz="3.67859542953002E-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mentorpi_description/meshes/mecanum/wheel_rf_Link.STL"/>
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mentorpi_description/meshes/mecanum/wheel_rf_Link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel_rf_Joint" type="continuous">
+    <origin rpy="0 0 0" xyz="0.067052 -0.07591 -0.018408"/>
+    <parent link="base_link"/>
+    <child link="wheel_rf_Link"/>
+    <axis xyz="0.00012228 1 -4.0642E-05"/>
+  </joint>
+  <link name="wheel_lb_Link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-4.39089176767909E-05 -0.00574629427498616 3.59684108433914E-05"/>
+      <mass value="0.0378689402752074"/>
+      <inertia ixx="3.67629328541386E-06" ixy="1.48552620491244E-09" ixz="1.20977149812926E-08" iyy="5.80903210056483E-06" iyz="1.72555302795062E-09" izz="3.6786318488588E-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mentorpi_description/meshes/mecanum/wheel_lb_Link.STL"/>
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mentorpi_description/meshes/mecanum/wheel_lb_Link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel_lb_Joint" type="continuous">
+    <origin rpy="0 0 0" xyz="-0.06764 0.07591 -0.018414"/>
+    <parent link="base_link"/>
+    <child link="wheel_lb_Link"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+  <link name="wheel_rb_Link">
+    <inertial>
+      <origin rpy="0 0 0" xyz="-6.2256559793028E-05 0.00574614092169209 2.96857054536206E-05"/>
+      <mass value="0.0378742388937267"/>
+      <inertia ixx="3.67690880733038E-06" ixy="-1.42614754024296E-09" ixz="1.19925568848388E-08" iyy="5.81009054149328E-06" iyz="-1.72488948912739E-09" izz="3.67928241656151E-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mentorpi_description/meshes/mecanum/wheel_rb_Link.STL"/>
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mentorpi_description/meshes/mecanum/wheel_rb_Link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="wheel_rb_Joint" type="continuous">
+    <origin rpy="0 0 0" xyz="-0.067621 -0.07591 -0.018408"/>
+    <parent link="base_link"/>
+    <child link="wheel_rb_Link"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+  <link name="depth_cam">
+    <inertial>
+      <origin rpy="0 0 0" xyz="0.0023402290706885 0.00113784597175737 -0.010212706399263"/>
+      <mass value="0.0270474748712619"/>
+      <inertia ixx="1.43718505980935E-05" ixy="1.24779390700312E-07" ixz="1.29836475580818E-08" iyy="1.65912768335363E-06" iyz="2.28291474116005E-08" izz="1.45615925671284E-05"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mentorpi_description/meshes/mecanum/cam_Link.STL"/>
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mentorpi_description/meshes/mecanum/cam_Link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="cam_Joint" type="fixed">
+    <origin rpy="0 0 0" xyz="0.061376 -0.00013463 0.051154"/>
+    <parent link="base_link"/>
+    <child link="depth_cam"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  <link name="lidar_frame">
+    <inertial>
+      <origin rpy="0 0 0" xyz="8.65086404290248E-05 9.02624664517182E-05 -0.0183546134707293"/>
+      <mass value="0.0405423044439003"/>
+      <inertia ixx="4.98470777040832E-06" ixy="-1.5407626531037E-07" ixz="2.05182756187779E-09" iyy="5.03926730954594E-06" iyz="1.10062857837226E-08" izz="8.25645669795306E-06"/>
+    </inertial>
+    <visual>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mentorpi_description/meshes/mecanum/lidar_Link.STL"/>
+      </geometry>
+      <material name="">
+        <color rgba="1 1 1 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0"/>
+      <geometry>
+        <mesh filename="package://mentorpi_description/meshes/mecanum/lidar_Link.STL"/>
+      </geometry>
+    </collision>
+  </link>
+  <joint name="lidar_Joint" type="fixed">
+    <origin rpy="0 0 0" xyz="-0.012242 -8.533E-05 0.092501"/>
+    <parent link="base_link"/>
+    <child link="lidar_frame"/>
+    <axis xyz="0 0 0"/>
+  </joint>
+  
+</robot>

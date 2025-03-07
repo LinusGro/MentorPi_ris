@@ -1,0 +1,23 @@
+apriltag_detector:
+  ros__parameters:
+    image_transport: raw  # Image format type
+    family: Custom48h12      # Tag family (change if needed)
+    max_hamming: 0        # Maximum allowed Hamming distance
+    size: 0.084           # Default tag size (meters, used if not specified per tag)
+
+    # Detector parameters
+    detector:
+      threads: 1
+      decimate: 1.0
+      blur: 0.0
+      refine: True
+      sharpening: 0.25
+      debug: False
+
+    # Standalone tag definitions
+    standalone_tags:
+      ids:    [992, 993, 994, 995, 996, 997]
+      sizes:  [0.0162, 0.0162, 0.0162, 0.0162, 0.0162, 0.0162]
+
+
+

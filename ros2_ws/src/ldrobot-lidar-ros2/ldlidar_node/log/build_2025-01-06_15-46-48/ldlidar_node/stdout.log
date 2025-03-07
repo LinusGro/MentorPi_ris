@@ -1,0 +1,89 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+--  * Release Mode
+-- * Found ROS2 jazzy
+-- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Found rclcpp: 28.1.5 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.6.4 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.4 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  
+-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found rclcpp_components: 28.1.5 (/opt/ros/jazzy/share/rclcpp_components/cmake)
+-- Found rclcpp_lifecycle: 28.1.5 (/opt/ros/jazzy/share/rclcpp_lifecycle/cmake)
+-- Found ldlidar_component: 0.2.0 (/home/ro01/workspace/ros2_ws/install/ldlidar_component/share/ldlidar_component/cmake)
+-- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)
+-- Found Eigen3: TRUE (found version "3.4.0") 
+-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+-- Found ament_lint_auto: 0.17.1 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+-- Found PythonExtra: /usr/bin/python3  
+-- Added test 'copyright' to check source files copyright and LICENSE
+-- Added test 'cppcheck' to perform static code analysis on C / C++ code
+-- Configured cppcheck include dirs: 
+-- Configured cppcheck exclude dirs and/or files: 
+-- Added test 'cpplint' to check C / C++ code against the Google style
+-- Configured cpplint exclude dirs and/or files: 
+-- Added test 'flake8' to check Python code syntax and style conventions
+-- Configured 'flake8' exclude dirs and/or files: 
+-- Added test 'lint_cmake' to check CMake code style
+-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+-- Added test 'uncrustify' to check C / C++ code style
+-- Configured uncrustify additional arguments: 
+-- Added test 'xmllint' to check XML markup files
+-- Configuring done (5.2s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node
+[ 50%] [32mBuilding CXX object CMakeFiles/ldlidar_node.dir/src/ldlidar_container_node.cpp.o[0m
+[100%] [32m[1mLinking CXX executable ldlidar_node[0m
+[100%] Built target ldlidar_node
+-- Install configuration: "Release"
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/lib/ldlidar_node/ldlidar_node
+-- Set non-toolchain portion of runtime path of "/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/lib/ldlidar_node/ldlidar_node" to ""
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params/slam_toolbox.yaml
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params/lifecycle_mgr.yaml
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params/lifecycle_mgr_slam.yaml
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params/ldlidar.yaml
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/config
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/config/ldlidar_slam.rviz
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/config/ldlidar.rviz
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/urdf
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/urdf/ldlidar_descr.urdf.xml
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/urdf/model
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/urdf/model/LD19.stl
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch/ldlidar_with_mgr.launch.py
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch/ldlidar.launch.py
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch/ldlidar_rviz2.launch.py
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch/ldlidar_slam.launch.py
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ament_index/resource_index/package_run_dependencies/ldlidar_node
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ament_index/resource_index/parent_prefix_path/ldlidar_node
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/environment/ament_prefix_path.sh
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/environment/ament_prefix_path.dsv
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/environment/path.sh
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/environment/path.dsv
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/local_setup.bash
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/local_setup.sh
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/local_setup.zsh
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/local_setup.dsv
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/package.dsv
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ament_index/resource_index/packages/ldlidar_node
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/cmake/ldlidar_nodeConfig.cmake
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/cmake/ldlidar_nodeConfig-version.cmake
+-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/package.xml

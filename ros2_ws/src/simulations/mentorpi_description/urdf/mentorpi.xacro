@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot name="rosmentor" xmlns:xacro="http://ros.org/wiki/xacro">
+    <xacro:property name="machine"      value="$(env MACHINE_TYPE)"/>
+    <xacro:if value="${machine == 'MentorPi_Mecanum'}">
+        <xacro:include filename="$(find mentorpi_description)/urdf/mecanum.xacro"/>
+    </xacro:if>
+    <xacro:if value="${machine == 'MentorPi_Acker'}">
+        <xacro:include filename="$(find mentorpi_description)/urdf/ack.xacro"/>
+    </xacro:if>
+    <xacro:include filename="$(find mentorpi_description)/urdf/inertial_matrix.xacro" />
+</robot>

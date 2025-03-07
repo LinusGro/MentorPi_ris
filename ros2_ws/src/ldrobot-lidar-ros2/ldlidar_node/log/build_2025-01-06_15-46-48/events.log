@@ -1,0 +1,230 @@
+[0.000000] (-) TimerEvent: {}
+[0.000313] (ldlidar_node) JobQueued: {'identifier': 'ldlidar_node', 'dependencies': OrderedDict()}
+[0.001052] (ldlidar_node) JobStarted: {'identifier': 'ldlidar_node'}
+[0.014772] (ldlidar_node) JobProgress: {'identifier': 'ldlidar_node', 'progress': 'cmake'}
+[0.015477] (ldlidar_node) Command: {'cmd': ['/usr/bin/cmake', '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node', '-DCMAKE_INSTALL_PREFIX=/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node'], 'cwd': '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'ro01', 'SSH_CLIENT': '192.168.1.101 36020 22', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'MACHINE_TYPE': 'MentorPi_Mecanum', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/ro01/workspace/ros2_ws/install/ros_robot_controller_msgs/lib:/home/ro01/workspace/ros2_ws/install/ldlidar_component/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/ro01', 'OLDPWD': '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2', 'SSH_TTY': '/dev/pts/2', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1002/bus', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/ro01/workspace/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ro01', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '15', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1002', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/home/ro01/workspace/ros2_ws/install/sdk:/home/ro01/workspace/ros2_ws/install/ros_robot_controller_msgs:/home/ro01/workspace/ros2_ws/install/ros_robot_controller:/home/ro01/workspace/ros2_ws/install/orchestrator_launch:/home/ro01/workspace/ros2_ws/install/peripherals:/home/ro01/workspace/ros2_ws/install/mentorpi_description:/home/ro01/workspace/ros2_ws/install/ldlidar_stl_ros2:/home/ro01/workspace/ros2_ws/install/ldlidar:/home/ro01/workspace/ros2_ws/install/ldlidar_node:/home/ro01/workspace/ros2_ws/install/ldlidar_component:/home/ro01/workspace/ros2_ws/install/imu_calib:/home/ro01/workspace/ros2_ws/install/controller:/home/ro01/workspace/ros2_ws/install/calibration:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node', 'SSH_CONNECTION': '192.168.1.101 36020 192.168.1.25 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/ro01/workspace/ros2_ws/install/sdk/lib/python3.12/site-packages:/home/ro01/workspace/ros2_ws/install/ros_robot_controller_msgs/lib/python3.12/site-packages:/home/ro01/workspace/ros2_ws/install/ros_robot_controller/lib/python3.12/site-packages:/home/ro01/workspace/ros2_ws/install/peripherals/lib/python3.12/site-packages:/home/ro01/workspace/ros2_ws/install/mentorpi_description/lib/python3.12/site-packages:/home/ro01/workspace/ros2_ws/install/controller/lib/python3.12/site-packages:/home/ro01/workspace/ros2_ws/install/calibration/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/ro01/workspace/ros2_ws/install/ros_robot_controller_msgs:/home/ro01/workspace/ros2_ws/install/orchestrator_launch:/home/ro01/workspace/ros2_ws/install/ldlidar_stl_ros2:/home/ro01/workspace/ros2_ws/install/ldlidar:/home/ro01/workspace/ros2_ws/install/ldlidar_node:/home/ro01/workspace/ros2_ws/install/ldlidar_component:/home/ro01/workspace/ros2_ws/install/imu_calib:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/ro01/workspace/ros2_ws/install/sdk:/home/ro01/workspace/ros2_ws/install/ros_robot_controller:/home/ro01/workspace/ros2_ws/install/peripherals:/home/ro01/workspace/ros2_ws/install/mentorpi_description:/home/ro01/workspace/ros2_ws/install/controller:/home/ro01/workspace/ros2_ws/install/calibration:/opt/ros/jazzy'}), 'shell': False}
+[0.099682] (-) TimerEvent: {}
+[0.200037] (-) TimerEvent: {}
+[0.300439] (-) TimerEvent: {}
+[0.400818] (-) TimerEvent: {}
+[0.501168] (-) TimerEvent: {}
+[0.534606] (ldlidar_node) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.601295] (-) TimerEvent: {}
+[0.701661] (-) TimerEvent: {}
+[0.802015] (-) TimerEvent: {}
+[0.902423] (-) TimerEvent: {}
+[0.917363] (ldlidar_node) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[0.967747] (ldlidar_node) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.002540] (-) TimerEvent: {}
+[1.102895] (-) TimerEvent: {}
+[1.179058] (ldlidar_node) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.194908] (ldlidar_node) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[1.201265] (ldlidar_node) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.202406] (ldlidar_node) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.202952] (-) TimerEvent: {}
+[1.228811] (ldlidar_node) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[1.303079] (-) TimerEvent: {}
+[1.403442] (-) TimerEvent: {}
+[1.434661] (ldlidar_node) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.449419] (ldlidar_node) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[1.449807] (ldlidar_node) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.450483] (ldlidar_node) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.451407] (ldlidar_node) StdoutLine: {'line': b'--  * Release Mode\n'}
+[1.451618] (ldlidar_node) StdoutLine: {'line': b'-- * Found ROS2 jazzy\n'}
+[1.451706] (ldlidar_node) StderrLine: {'line': b'\x1b[33mCMake Warning at CMakeLists.txt:70 (message):\n'}
+[1.451830] (ldlidar_node) StderrLine: {'line': b'  ROS2 jazzy is not officially supported by this package.  Correct working is\n'}
+[1.451916] (ldlidar_node) StderrLine: {'line': b'  not guarantee.\n'}
+[1.451993] (ldlidar_node) StderrLine: {'line': b'\n'}
+[1.452070] (ldlidar_node) StderrLine: {'line': b'\x1b[0m\n'}
+[1.476655] (ldlidar_node) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.2 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[1.503553] (-) TimerEvent: {}
+[1.603869] (-) TimerEvent: {}
+[1.704231] (-) TimerEvent: {}
+[1.776365] (ldlidar_node) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[1.804333] (-) TimerEvent: {}
+[1.904671] (-) TimerEvent: {}
+[2.005040] (-) TimerEvent: {}
+[2.103360] (ldlidar_node) StdoutLine: {'line': b'-- Found rclcpp: 28.1.5 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[2.105107] (-) TimerEvent: {}
+[2.205389] (-) TimerEvent: {}
+[2.264920] (ldlidar_node) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.4 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[2.305498] (-) TimerEvent: {}
+[2.307242] (ldlidar_node) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.4 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[2.369413] (ldlidar_node) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.405603] (-) TimerEvent: {}
+[2.439870] (ldlidar_node) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.505719] (-) TimerEvent: {}
+[2.606043] (-) TimerEvent: {}
+[2.706411] (-) TimerEvent: {}
+[2.733263] (ldlidar_node) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[2.747092] (ldlidar_node) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[2.806531] (-) TimerEvent: {}
+[2.906912] (-) TimerEvent: {}
+[3.007304] (-) TimerEvent: {}
+[3.016464] (ldlidar_node) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  \n'}
+[3.055662] (ldlidar_node) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") \n'}
+[3.096482] (ldlidar_node) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[3.107421] (-) TimerEvent: {}
+[3.207760] (-) TimerEvent: {}
+[3.308100] (-) TimerEvent: {}
+[3.328535] (ldlidar_node) StdoutLine: {'line': b'-- Found rclcpp_components: 28.1.5 (/opt/ros/jazzy/share/rclcpp_components/cmake)\n'}
+[3.408221] (-) TimerEvent: {}
+[3.446059] (ldlidar_node) StdoutLine: {'line': b'-- Found rclcpp_lifecycle: 28.1.5 (/opt/ros/jazzy/share/rclcpp_lifecycle/cmake)\n'}
+[3.508332] (-) TimerEvent: {}
+[3.520847] (ldlidar_node) StdoutLine: {'line': b'-- Found ldlidar_component: 0.2.0 (/home/ro01/workspace/ros2_ws/install/ldlidar_component/share/ldlidar_component/cmake)\n'}
+[3.608444] (-) TimerEvent: {}
+[3.708771] (-) TimerEvent: {}
+[3.809084] (-) TimerEvent: {}
+[3.909468] (-) TimerEvent: {}
+[4.009794] (-) TimerEvent: {}
+[4.110143] (-) TimerEvent: {}
+[4.210501] (-) TimerEvent: {}
+[4.310818] (-) TimerEvent: {}
+[4.376634] (ldlidar_node) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)\n'}
+[4.379322] (ldlidar_node) StdoutLine: {'line': b'-- Found Eigen3: TRUE (found version "3.4.0") \n'}
+[4.379571] (ldlidar_node) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[4.410921] (-) TimerEvent: {}
+[4.511314] (-) TimerEvent: {}
+[4.551392] (ldlidar_node) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.17.1 (/opt/ros/jazzy/share/ament_lint_auto/cmake)\n'}
+[4.611428] (-) TimerEvent: {}
+[4.711792] (-) TimerEvent: {}
+[4.812168] (-) TimerEvent: {}
+[4.912618] (-) TimerEvent: {}
+[4.941951] (ldlidar_node) StdoutLine: {'line': b'-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)\n'}
+[5.012727] (-) TimerEvent: {}
+[5.113118] (-) TimerEvent: {}
+[5.173861] (ldlidar_node) StdoutLine: {'line': b'-- Found PythonExtra: /usr/bin/python3  \n'}
+[5.189001] (ldlidar_node) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[5.200056] (ldlidar_node) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[5.200389] (ldlidar_node) StdoutLine: {'line': b'-- Configured cppcheck include dirs: \n'}
+[5.200510] (ldlidar_node) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[5.210253] (ldlidar_node) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[5.210490] (ldlidar_node) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[5.213159] (-) TimerEvent: {}
+[5.213424] (ldlidar_node) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[5.213630] (ldlidar_node) StdoutLine: {'line': b"-- Configured 'flake8' exclude dirs and/or files: \n"}
+[5.217116] (ldlidar_node) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[5.220260] (ldlidar_node) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[5.230029] (ldlidar_node) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[5.230292] (ldlidar_node) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[5.249650] (ldlidar_node) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[5.255754] (ldlidar_node) StdoutLine: {'line': b'-- Configuring done (5.2s)\n'}
+[5.313290] (-) TimerEvent: {}
+[5.393038] (ldlidar_node) StdoutLine: {'line': b'-- Generating done (0.1s)\n'}
+[5.403281] (ldlidar_node) StdoutLine: {'line': b'-- Build files have been written to: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node\n'}
+[5.413406] (-) TimerEvent: {}
+[5.428760] (ldlidar_node) CommandEnded: {'returncode': 0}
+[5.429531] (ldlidar_node) JobProgress: {'identifier': 'ldlidar_node', 'progress': 'build'}
+[5.430292] (ldlidar_node) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node', '--', '-j4', '-l4'], 'cwd': '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'ro01', 'SSH_CLIENT': '192.168.1.101 36020 22', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'MACHINE_TYPE': 'MentorPi_Mecanum', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/ro01/workspace/ros2_ws/install/ros_robot_controller_msgs/lib:/home/ro01/workspace/ros2_ws/install/ldlidar_component/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/ro01', 'OLDPWD': '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2', 'SSH_TTY': '/dev/pts/2', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1002/bus', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/ro01/workspace/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ro01', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '15', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1002', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/home/ro01/workspace/ros2_ws/install/sdk:/home/ro01/workspace/ros2_ws/install/ros_robot_controller_msgs:/home/ro01/workspace/ros2_ws/install/ros_robot_controller:/home/ro01/workspace/ros2_ws/install/orchestrator_launch:/home/ro01/workspace/ros2_ws/install/peripherals:/home/ro01/workspace/ros2_ws/install/mentorpi_description:/home/ro01/workspace/ros2_ws/install/ldlidar_stl_ros2:/home/ro01/workspace/ros2_ws/install/ldlidar:/home/ro01/workspace/ros2_ws/install/ldlidar_node:/home/ro01/workspace/ros2_ws/install/ldlidar_component:/home/ro01/workspace/ros2_ws/install/imu_calib:/home/ro01/workspace/ros2_ws/install/controller:/home/ro01/workspace/ros2_ws/install/calibration:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node', 'SSH_CONNECTION': '192.168.1.101 36020 192.168.1.25 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/ro01/workspace/ros2_ws/install/sdk/lib/python3.12/site-packages:/home/ro01/workspace/ros2_ws/install/ros_robot_controller_msgs/lib/python3.12/site-packages:/home/ro01/workspace/ros2_ws/install/ros_robot_controller/lib/python3.12/site-packages:/home/ro01/workspace/ros2_ws/install/peripherals/lib/python3.12/site-packages:/home/ro01/workspace/ros2_ws/install/mentorpi_description/lib/python3.12/site-packages:/home/ro01/workspace/ros2_ws/install/controller/lib/python3.12/site-packages:/home/ro01/workspace/ros2_ws/install/calibration/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/ro01/workspace/ros2_ws/install/ros_robot_controller_msgs:/home/ro01/workspace/ros2_ws/install/orchestrator_launch:/home/ro01/workspace/ros2_ws/install/ldlidar_stl_ros2:/home/ro01/workspace/ros2_ws/install/ldlidar:/home/ro01/workspace/ros2_ws/install/ldlidar_node:/home/ro01/workspace/ros2_ws/install/ldlidar_component:/home/ro01/workspace/ros2_ws/install/imu_calib:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/ro01/workspace/ros2_ws/install/sdk:/home/ro01/workspace/ros2_ws/install/ros_robot_controller:/home/ro01/workspace/ros2_ws/install/peripherals:/home/ro01/workspace/ros2_ws/install/mentorpi_description:/home/ro01/workspace/ros2_ws/install/controller:/home/ro01/workspace/ros2_ws/install/calibration:/opt/ros/jazzy'}), 'shell': False}
+[5.513579] (-) TimerEvent: {}
+[5.540736] (ldlidar_node) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/ldlidar_node.dir/src/ldlidar_container_node.cpp.o\x1b[0m\n'}
+[5.613680] (-) TimerEvent: {}
+[5.714025] (-) TimerEvent: {}
+[5.814396] (-) TimerEvent: {}
+[5.914757] (-) TimerEvent: {}
+[6.015095] (-) TimerEvent: {}
+[6.115438] (-) TimerEvent: {}
+[6.215757] (-) TimerEvent: {}
+[6.316102] (-) TimerEvent: {}
+[6.416458] (-) TimerEvent: {}
+[6.516779] (-) TimerEvent: {}
+[6.617113] (-) TimerEvent: {}
+[6.717489] (-) TimerEvent: {}
+[6.817934] (-) TimerEvent: {}
+[6.918321] (-) TimerEvent: {}
+[7.018686] (-) TimerEvent: {}
+[7.119061] (-) TimerEvent: {}
+[7.219477] (-) TimerEvent: {}
+[7.319820] (-) TimerEvent: {}
+[7.420159] (-) TimerEvent: {}
+[7.520646] (-) TimerEvent: {}
+[7.621274] (-) TimerEvent: {}
+[7.721635] (-) TimerEvent: {}
+[7.822047] (-) TimerEvent: {}
+[7.922445] (-) TimerEvent: {}
+[8.022781] (-) TimerEvent: {}
+[8.123143] (-) TimerEvent: {}
+[8.223500] (-) TimerEvent: {}
+[8.323858] (-) TimerEvent: {}
+[8.424193] (-) TimerEvent: {}
+[8.524590] (-) TimerEvent: {}
+[8.625025] (-) TimerEvent: {}
+[8.725430] (-) TimerEvent: {}
+[8.825794] (-) TimerEvent: {}
+[8.926178] (-) TimerEvent: {}
+[9.026534] (-) TimerEvent: {}
+[9.126871] (-) TimerEvent: {}
+[9.227261] (-) TimerEvent: {}
+[9.327617] (-) TimerEvent: {}
+[9.427970] (-) TimerEvent: {}
+[9.528319] (-) TimerEvent: {}
+[9.628647] (-) TimerEvent: {}
+[9.729024] (-) TimerEvent: {}
+[9.829455] (-) TimerEvent: {}
+[9.929904] (-) TimerEvent: {}
+[10.030287] (-) TimerEvent: {}
+[10.130660] (-) TimerEvent: {}
+[10.231036] (-) TimerEvent: {}
+[10.331476] (-) TimerEvent: {}
+[10.431831] (-) TimerEvent: {}
+[10.532213] (-) TimerEvent: {}
+[10.632579] (-) TimerEvent: {}
+[10.732926] (-) TimerEvent: {}
+[10.833307] (-) TimerEvent: {}
+[10.933663] (-) TimerEvent: {}
+[11.034031] (-) TimerEvent: {}
+[11.134502] (-) TimerEvent: {}
+[11.234866] (-) TimerEvent: {}
+[11.335227] (-) TimerEvent: {}
+[11.435601] (-) TimerEvent: {}
+[11.525019] (ldlidar_node) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable ldlidar_node\x1b[0m\n'}
+[11.535714] (-) TimerEvent: {}
+[11.636225] (-) TimerEvent: {}
+[11.736717] (-) TimerEvent: {}
+[11.837264] (-) TimerEvent: {}
+[11.937633] (-) TimerEvent: {}
+[12.038051] (-) TimerEvent: {}
+[12.138454] (-) TimerEvent: {}
+[12.169062] (ldlidar_node) StdoutLine: {'line': b'[100%] Built target ldlidar_node\n'}
+[12.193454] (ldlidar_node) CommandEnded: {'returncode': 0}
+[12.194206] (ldlidar_node) JobProgress: {'identifier': 'ldlidar_node', 'progress': 'install'}
+[12.213259] (ldlidar_node) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node'], 'cwd': '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'ro01', 'SSH_CLIENT': '192.168.1.101 36020 22', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'MACHINE_TYPE': 'MentorPi_Mecanum', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/ro01/workspace/ros2_ws/install/ros_robot_controller_msgs/lib:/home/ro01/workspace/ros2_ws/install/ldlidar_component/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'HOME': '/home/ro01', 'OLDPWD': '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2', 'SSH_TTY': '/dev/pts/2', 'ROS_PYTHON_VERSION': '3', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1002/bus', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/ro01/workspace/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'ro01', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '15', 'PATH': '/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1002', 'LANG': 'C.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'AMENT_PREFIX_PATH': '/home/ro01/workspace/ros2_ws/install/sdk:/home/ro01/workspace/ros2_ws/install/ros_robot_controller_msgs:/home/ro01/workspace/ros2_ws/install/ros_robot_controller:/home/ro01/workspace/ros2_ws/install/orchestrator_launch:/home/ro01/workspace/ros2_ws/install/peripherals:/home/ro01/workspace/ros2_ws/install/mentorpi_description:/home/ro01/workspace/ros2_ws/install/ldlidar_stl_ros2:/home/ro01/workspace/ros2_ws/install/ldlidar:/home/ro01/workspace/ros2_ws/install/ldlidar_node:/home/ro01/workspace/ros2_ws/install/ldlidar_component:/home/ro01/workspace/ros2_ws/install/imu_calib:/home/ro01/workspace/ros2_ws/install/controller:/home/ro01/workspace/ros2_ws/install/calibration:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'PWD': '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node', 'SSH_CONNECTION': '192.168.1.101 36020 192.168.1.25 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/ro01/workspace/ros2_ws/install/sdk/lib/python3.12/site-packages:/home/ro01/workspace/ros2_ws/install/ros_robot_controller_msgs/lib/python3.12/site-packages:/home/ro01/workspace/ros2_ws/install/ros_robot_controller/lib/python3.12/site-packages:/home/ro01/workspace/ros2_ws/install/peripherals/lib/python3.12/site-packages:/home/ro01/workspace/ros2_ws/install/mentorpi_description/lib/python3.12/site-packages:/home/ro01/workspace/ros2_ws/install/controller/lib/python3.12/site-packages:/home/ro01/workspace/ros2_ws/install/calibration/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/ro01/workspace/ros2_ws/install/ros_robot_controller_msgs:/home/ro01/workspace/ros2_ws/install/orchestrator_launch:/home/ro01/workspace/ros2_ws/install/ldlidar_stl_ros2:/home/ro01/workspace/ros2_ws/install/ldlidar:/home/ro01/workspace/ros2_ws/install/ldlidar_node:/home/ro01/workspace/ros2_ws/install/ldlidar_component:/home/ro01/workspace/ros2_ws/install/imu_calib:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/ro01/workspace/ros2_ws/install/sdk:/home/ro01/workspace/ros2_ws/install/ros_robot_controller:/home/ro01/workspace/ros2_ws/install/peripherals:/home/ro01/workspace/ros2_ws/install/mentorpi_description:/home/ro01/workspace/ros2_ws/install/controller:/home/ro01/workspace/ros2_ws/install/calibration:/opt/ros/jazzy'}), 'shell': False}
+[12.231374] (ldlidar_node) StdoutLine: {'line': b'-- Install configuration: "Release"\n'}
+[12.231700] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/lib/ldlidar_node/ldlidar_node\n'}
+[12.232496] (ldlidar_node) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/lib/ldlidar_node/ldlidar_node" to ""\n'}
+[12.232708] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params\n'}
+[12.232846] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params/slam_toolbox.yaml\n'}
+[12.238529] (-) TimerEvent: {}
+[12.238862] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params/lifecycle_mgr.yaml\n'}
+[12.239307] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params/lifecycle_mgr_slam.yaml\n'}
+[12.239964] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params/ldlidar.yaml\n'}
+[12.240621] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/config\n'}
+[12.240750] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/config/ldlidar_slam.rviz\n'}
+[12.241374] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/config/ldlidar.rviz\n'}
+[12.241900] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/urdf\n'}
+[12.242014] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/urdf/ldlidar_descr.urdf.xml\n'}
+[12.242430] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/urdf/model\n'}
+[12.242540] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/urdf/model/LD19.stl\n'}
+[12.267536] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch\n'}
+[12.267869] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch/ldlidar_with_mgr.launch.py\n'}
+[12.268160] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch/ldlidar.launch.py\n'}
+[12.268352] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch/ldlidar_rviz2.launch.py\n'}
+[12.268820] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch/ldlidar_slam.launch.py\n'}
+[12.269736] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ament_index/resource_index/package_run_dependencies/ldlidar_node\n'}
+[12.270080] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ament_index/resource_index/parent_prefix_path/ldlidar_node\n'}
+[12.270422] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/environment/ament_prefix_path.sh\n'}
+[12.270662] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/environment/ament_prefix_path.dsv\n'}
+[12.270893] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/environment/path.sh\n'}
+[12.271176] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/environment/path.dsv\n'}
+[12.271412] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/local_setup.bash\n'}
+[12.271644] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/local_setup.sh\n'}
+[12.271878] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/local_setup.zsh\n'}
+[12.272099] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/local_setup.dsv\n'}
+[12.272361] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/package.dsv\n'}
+[12.272680] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ament_index/resource_index/packages/ldlidar_node\n'}
+[12.273038] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/cmake/ldlidar_nodeConfig.cmake\n'}
+[12.273285] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/cmake/ldlidar_nodeConfig-version.cmake\n'}
+[12.273579] (ldlidar_node) StdoutLine: {'line': b'-- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/package.xml\n'}
+[12.276901] (ldlidar_node) CommandEnded: {'returncode': 0}
+[12.304303] (ldlidar_node) JobEnded: {'identifier': 'ldlidar_node', 'rc': 0}
+[12.305353] (-) EventReactorShutdown: {}

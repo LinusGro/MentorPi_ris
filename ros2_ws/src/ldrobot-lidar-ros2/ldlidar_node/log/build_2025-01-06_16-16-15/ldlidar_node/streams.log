@@ -1,0 +1,39 @@
+[0.021s] Invoking command in '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ro01/workspace/ros2_ws/install/sdk:/home/ro01/workspace/ros2_ws/install/ros_robot_controller:/home/ro01/workspace/ros2_ws/install/peripherals:/home/ro01/workspace/ros2_ws/install/mentorpi_description:/home/ro01/workspace/ros2_ws/install/controller:/home/ro01/workspace/ros2_ws/install/calibration:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node -- -j4 -l4
+[0.145s] [100%] Built target ldlidar_node
+[0.168s] Invoked command in '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ro01/workspace/ros2_ws/install/sdk:/home/ro01/workspace/ros2_ws/install/ros_robot_controller:/home/ro01/workspace/ros2_ws/install/peripherals:/home/ro01/workspace/ros2_ws/install/mentorpi_description:/home/ro01/workspace/ros2_ws/install/controller:/home/ro01/workspace/ros2_ws/install/calibration:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node -- -j4 -l4
+[0.189s] Invoking command in '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ro01/workspace/ros2_ws/install/sdk:/home/ro01/workspace/ros2_ws/install/ros_robot_controller:/home/ro01/workspace/ros2_ws/install/peripherals:/home/ro01/workspace/ros2_ws/install/mentorpi_description:/home/ro01/workspace/ros2_ws/install/controller:/home/ro01/workspace/ros2_ws/install/calibration:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node
+[0.205s] -- Install configuration: "Release"
+[0.205s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/lib/ldlidar_node/ldlidar_node
+[0.205s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params
+[0.205s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params/slam_toolbox.yaml
+[0.206s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params/lifecycle_mgr.yaml
+[0.206s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params/lifecycle_mgr_slam.yaml
+[0.206s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/params/ldlidar.yaml
+[0.206s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/config
+[0.206s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/config/ldlidar_slam.rviz
+[0.206s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/config/ldlidar.rviz
+[0.206s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/urdf
+[0.206s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/urdf/ldlidar_descr.urdf.xml
+[0.207s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/urdf/model
+[0.207s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/urdf/model/LD19.stl
+[0.207s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch
+[0.207s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch/ldlidar_with_mgr.launch.py
+[0.207s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch/ldlidar.launch.py
+[0.207s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch/ldlidar_rviz2.launch.py
+[0.207s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/launch/ldlidar_slam.launch.py
+[0.207s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ament_index/resource_index/package_run_dependencies/ldlidar_node
+[0.207s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ament_index/resource_index/parent_prefix_path/ldlidar_node
+[0.207s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/environment/ament_prefix_path.sh
+[0.207s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/environment/ament_prefix_path.dsv
+[0.208s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/environment/path.sh
+[0.208s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/environment/path.dsv
+[0.208s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/local_setup.bash
+[0.208s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/local_setup.sh
+[0.208s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/local_setup.zsh
+[0.208s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/local_setup.dsv
+[0.208s] -- Installing: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/package.dsv
+[0.208s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ament_index/resource_index/packages/ldlidar_node
+[0.208s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/cmake/ldlidar_nodeConfig.cmake
+[0.208s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/cmake/ldlidar_nodeConfig-version.cmake
+[0.208s] -- Up-to-date: /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/install/ldlidar_node/share/ldlidar_node/package.xml
+[0.211s] Invoked command in '/home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ro01/workspace/ros2_ws/install/sdk:/home/ro01/workspace/ros2_ws/install/ros_robot_controller:/home/ro01/workspace/ros2_ws/install/peripherals:/home/ro01/workspace/ros2_ws/install/mentorpi_description:/home/ro01/workspace/ros2_ws/install/controller:/home/ro01/workspace/ros2_ws/install/calibration:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/ro01/workspace/ros2_ws/src/ldrobot-lidar-ros2/ldlidar_node/build/ldlidar_node
