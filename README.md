@@ -1,11 +1,24 @@
-# MentorPI mecanum-wheel development starter pack
-This repository aims to provide a reasonable starting position for ROS2 development on the Raspberry Pi 5 based MentorPi robot platform from Hiwonder. Specifically, the version equipped with the mecanum-wheel drivetrain and the gimbal monocular camera (https://www.hiwonder.com/collections/raspberrypi-bionic-robot/products/mentorpi-m1?variant=41285892702295).
+# Project Seminar 'Robotics and Computational Intelligence' 2025 presented by RIS | Technical University of Darmstadt
 
-![Alt Text](images/mentor_Pi.jpg "RobotPicture")
+More information on the course can be found here: https://www.etit.tu-darmstadt.de/ris/lehre_ris/lehrveranstaltungen_ris/pro_robo_ris/
+
+
+This repository serves as a starting base for the students participating in this year's course. 
+
+The task will be to programm a MentorPi that is set in a maze environment. Here, the MentorPi is supposed to handle different tasks. These tasks include the autonomous navigation and localization of the MentorPi in an unkown maze.
+
+Detailed information on the tasks is given internally via Moodle.
+
+| ![Image 2](images/Bild1.jpg) | ![Image 1](images/Bild_PiBot_im_Labyrinth.jpg) |
+|------------------------|------------------------|
+| MentorPi robot named Chewbacca |  Robot in the maze     |
+
+This repository aims to provide a reasonable starting position for ROS2 development on the Raspberry Pi 5 based MentorPi robot platform from Hiwonder. Specifically, the version equipped with the mecanum-wheel drivetrain and the gimbal monocular camera (https://www.hiwonder.com/collections/raspberrypi-bionic-robot/products/mentorpi-m1?variant=41285892702295).
 
 
 # Table of Contents
-- [General Information](#general-information)  
+- [General Information](#general-information)
+   - [Basic Knowledge](#basic-knowledge)
 - [Basic Setup](#basic-setup)  
    - [Linux Setup](#linux-setup)
    - [Installing ROS2](#installing-ros2)
@@ -30,14 +43,40 @@ This repository aims to provide a reasonable starting position for ROS2 developm
    - [Multiple Robots on the Same Network](#multiple-robots-on-the-same-network)
    - [About Standardization](#about-standardization)
    - [How To Start Development](#how-to-start-development)
+- [Contributions](#contributions)
 
 
 # General Information
 The MentorPi platform from Hiwonder is a Raspberry Pi 5 based robot platform. The operating system we will be installing on the Raspberry Pi 5 is Ubuntu 24.04, which is a version of Linux. Therefore the robot can be thought of as a normal computer, that can be used with a mouse, keyboard and monitor. The robot uses mecanum wheels, and features a monocular camera, which can be moved around, a LIDAR scanner, an inertial measurement unit (IMU), and wheel encoders.
 As a development framework, the Robot Operating System (ROS2) is used. The version used is ROS2 Jazzy. ROS2 is an open-source framework for building robotic applications. It acts as the middleware between the different components of the robot and also provides tools, libraries, hardware abstraction, device drivers and more for standardized robot development.
-For more information, see the ROS2 documentation: https://docs.ros.org/en/jazzy/index.html
 <br>
 <br>
+
+## Basic Knowledge
+Before starting, some basic knowledge should be available. In case you are not familiar with the following, read online about the basics or watch some tutorials (e.g. Youtube). **Important: These basics will not be covered in the lecture. You are expected to learn the necessary skills on your own.**
+- some basics in Linux (you will use Ubuntu 24.04)
+    - basic console commands `cd`, `ls`, `mkdir`, `source`, `cp`, `mv`, `rm`, `chmod`, ...
+    - the purpose of `sudo`
+    - the purpose of `apt-get`
+    - read here https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-basics or watch e.g. this tutorial https://www.youtube.com/watch?v=s3ii48qYBxA
+- some basics in C/C++
+    - C/C++ compiling procedure including the purpose of `cmake`, `make` and `CmakeLists.txt`
+- some basics in Python
+    - the purpose of `pip`
+- the purpose of Git as well as basic commands `commit`, `push`, `pull`, `clone`, `fork`, ...
+    - e.g. have a look at https://learngitbranching.js.org/?locale=de_DE for learning the basics of git
+- ROS (you will use the ROS2 version Jazzy)
+    - *Note: How ROS is installed on the MentorPi will be explained further below*
+    - do the tutorials at https://docs.ros.org/en/jazzy/Tutorials.html
+    - RVIZ
+    - rqt (e.g. `rqt_graph` )
+    - For more information, see the ROS2 documentation: https://docs.ros.org/en/jazzy/index.html
+ - basic knowledge about mobile robots
+    - will be teached in the lecture
+    - kinematic model of mecanum wheel drive robot (see https://www.youtube.com/watch?v=gnSW2QpkGXQ or https://www.youtube.com/watch?v=Xrc0l4TDnyw&t=91s
+    - basic functionality of an IMU, LIDAR and encoders
+- General coding advice: Don't copy paste commands blindfold. Try to understand what's the purpose of the command and also read what happens in the console output (especially, when there are errors). ChatGPT can be a great help in explaining the functionality of commands, interpreting error messages, and assisting with debugging. However, **ChatGPT does not replace a thinking brain sitting in front of the laptop**, and you should always try to understand what you are typing into the console and why.
+ ![Image 4](images/meme_chatgpt_small.png)
 
 # Basic Setup
 * In this chapter, the basic setup of the robot is explained. You will install Linux, ROS2 and all necessary drivers for the motors, servos, camera and LIDAR on the Raspberry Pi 5 of the robot.
@@ -45,7 +84,8 @@ For more information, see the ROS2 documentation: https://docs.ros.org/en/jazzy/
 
 * This README walks you through the initial setup for your robot. How and why things work may not be explained in detail. For explanation of the project structure and information about nodes and topics, see the project documentation in the `/docs` folder of this repository.
 
-* This README assumes basic knowledge about the LINUX file system and how to navigate it. For an introduction see: https://www.digitalocean.com/community/tutorials/an-introduction-to-linux-basics
+* This README assumes basic knowledge about the LINUX file system and how to navigate it, see [Basic Knowledge](#basic-knowledge).
+
 <br>
 
 ## Linux Setup
@@ -563,3 +603,6 @@ you create a new python package. **Make sure** you are inside your build folder 
 
 * If you installed a package via the package manager, it is installed in `/opt/ros/jazzy/share`. Some standard launch and parameter files are usually given here. If you want to use such a "standard package" you most likely need to at least adjust the launch script and the parameter files. It is best practice to **not** modify installed packages in `/opt/ros/...`, instead you should organize them inside a package of your own workspace. In our structure, both the `orchestrator_launch` and the `peripherals` package are good places for this. You can copy the given launch scripts and parameter files from `/opt/ros/jazzy/share/package_name/` into one of these packages and launch the installed packages from there.
 
+
+# Contributions
+We thank M. Schmiegel and J. Baur for setting up this repository.
