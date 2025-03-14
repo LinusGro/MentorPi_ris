@@ -19,6 +19,7 @@ This repository aims to provide a reasonable starting position for ROS2 developm
 # Table of Contents
 - [General Information](#general-information)
    - [Basic Knowledge](#basic-knowledge)
+   - [The Maze](#the-maze)
 - [Basic Setup](#basic-setup)  
    - [Linux Setup](#linux-setup)
    - [Installing ROS2](#installing-ros2)
@@ -77,6 +78,19 @@ Before starting, some basic knowledge should be available. In case you are not f
     - basic functionality of an IMU, LIDAR and encoders
 - General coding advice: Don't copy paste commands blindfold. Try to understand what's the purpose of the command and also read what happens in the console output (especially, when there are errors). ChatGPT can be a great help in explaining the functionality of commands, interpreting error messages, and assisting with debugging. However, **ChatGPT does not replace a thinking brain sitting in front of the laptop**, and you should always try to understand what you are typing into the console and why.
  ![Image 4](images/meme_chatgpt_small.png)
+
+
+## The Maze
+The maze can be set up modularly in size and configuration and consists of base plates and wall plates. 
+Our institute features two configurable mazes, each located in a different room. The shape of the maze can be freely chosen—whether square, rectangular, L-shaped, or any other form. The only requirements are that all outer walls must be in place and the maze remains fully connected, ensuring there are no isolated areas. The global coordinate system's origin is set in one corner of the maze.
+
+![Image3](images/Labyrinth_cut.JPG)
+
+
+Some wall plates of the maze are laser-engraved with recursive AprilTags - these can be ignored! (They were used in last years project seminar by the robot to localize itself).
+More information on the arena, e.g. on size of the base and wall plates can be found in a separate repository:
+
+https://github.com/NikHoh/apriltag-maze
 
 # Basic Setup
 * In this chapter, the basic setup of the robot is explained. You will install Linux, ROS2 and all necessary drivers for the motors, servos, camera and LIDAR on the Raspberry Pi 5 of the robot.
@@ -294,8 +308,10 @@ You need to restart your Raspberry Pi 5 for this rule to take effect.
 <br>
 <br>
 
+
 # Testing
 If you successfully installed everything we can start testing.
+
 
 ## Test Motor Functions
 The expansion board from Hiwonder controls all 4 wheels, the 2 PWM servos the camera is attached to and also allows for access to the IMU. 
