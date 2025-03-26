@@ -26,6 +26,9 @@ This repository aims to provide a reasonable starting position for ROS2 developm
    - [Setup your ROS2 Workspace](#setup-your-ros2-workspace)
    - [Set Environment Variables](#set-environment-variables)
    - [Set User Permissions](#set-user-permissions)
+- [ROS2 on an additional computer](#ros2-on-an-additional-computer)
+   - [Computer running Ubuntu](#computer-running-ubuntu)
+   - [Computer running Windows or macOS](#computer-running-windows-or-macos)
 - [Testing](#testing)  
    - [Test the Camera](#test-the-camera)
       - [Test the Camera with a connected Monitor](#test-the-camera-with-a-connected-monitor)
@@ -76,7 +79,10 @@ Before starting, some basic knowledge should be available. In case you are not f
     - kinematic model of mecanum wheel drive robot (see https://www.youtube.com/watch?v=gnSW2QpkGXQ or https://www.youtube.com/watch?v=Xrc0l4TDnyw&t=91s
     - basic functionality of an IMU, LIDAR and encoders
 - General coding advice: Don't copy paste commands blindfold. Try to understand what's the purpose of the command and also read what happens in the console output (especially, when there are errors). ChatGPT can be a great help in explaining the functionality of commands, interpreting error messages, and assisting with debugging. However, **ChatGPT does not replace a thinking brain sitting in front of the laptop**, and you should always try to understand what you are typing into the console and why.
- ![Image 4](images/meme_chatgpt_small.png)
+
+<p align="center">
+  <img src="images/meme_chatgpt_small.png" alt="ChatGPT meme">
+</p>
 
 # Basic Setup
 * In this chapter, the basic setup of the robot is explained. You will install Linux, ROS2 and all necessary drivers for the motors, servos, camera and LIDAR on the Raspberry Pi 5 of the robot.
@@ -102,7 +108,7 @@ The easiest way to flash the Linux image is via the Raspberry Pi imager.
 ```bash
 sudo apt install rpi-imager
 ```
-Open the Raspberry PI Imager Tool, choose `Raspberry Pi 5` under *Device* and under *Choose OS*: `Other general-purpose OS` -> `Ubuntu` -> `Ubuntu Desktop 24.04.1 LTS (64-bit)`. Then choose the micro SD-card (at least 64GB) you want to install the OS on and click next to continue following the instructions of the tool.
+Open the Raspberry PI Imager Tool, choose `Raspberry Pi 5` under *Device* and under *Choose OS*: `Other general-purpose OS` -> `Ubuntu` -> `Ubuntu Desktop 24.04.2 LTS (64-bit)`. Then choose the micro SD-card (at least 64GB) you want to install the OS on and click next to continue following the instructions of the tool.
 
 2. **Boot for the first time**
 * Put the SD-card in the Raspberry Pi 5, and connect a mouse, keyboard and a monitor. The monitor can be connected via a micro HDMI cable, the micro HDMI port is located on the Raspberry Pi 5 on the forward facing side of the robot. A mouse and a keybaord can be connected via USB using the USB dock on the backward facing side of the robot. Then, boot the robot using the switch on the black PCB above the Raspberry Pi 5. 
@@ -291,6 +297,35 @@ Communication with the expansion board occurs via a serial connection. To enable
 sudo usermod -a -G dialout $USER
 ```
 You need to restart your Raspberry Pi 5 for this rule to take effect. 
+<br>
+<br>
+
+# ROS2 on an additional computer
+As mentioned before it is recommended to have an additional computer set up with ROS2 in order to use for example the visualization from rviz2 without the need of having a HDMI cable hooked to the robot at all times. Therefore an additional computer will have to be set up using ROS2. 
+<br>
+## Computer running Ubuntu
+Since the installation mentioned above is used to install ROS2 onto the Raspberry Pi, you can simply repeat the exact same steps to make ROS2 work on your system. Make sure that your PC/Laptop is allowed to communicate with other devices in the same network, otherwise you won't be able to communicate with the robot.
+<br>
+## Computer running Windows or macOS
+The shown installation is only working natively on Ubuntu therefore additional steps are necessary. You can either install ROS2 for Windows/macOS following the guides provided on docs.ros.org(not recommended) or you can use a **Virtual Machine(VM)** to emulate an Ubuntu OS on your system. **We recommend using a VM for this purpose** because the install process from the Raspberry Pi will be exactly the same.<br>
+Another possibility would be to run ROS2 from a docker container but this will limit you to GUI-less application (no rviz therefore also not recommended).
+### Windows 10/11
+In general you can use any VM software you prefer. Possible solution which are available for free (for non-commerical use) are Oracle's Virtual Box(no account required) or VMWare's Workstation Pro (free account required, https://www.youtube.com/watch?v=kTO810vbF_E). Install the VM software and set up a new VM using an ubuntu image which are e.g. available at https://releases.ubuntu.com/noble/.<br>
+If this is the first VM you have ever set up, you can find many tutorials on how to do this e.g https://www.youtube.com/watch?v=nvdnQX9UkMY for VirtualBox or https://www.youtube.com/watch?v=BHpRTVP8upg for Workstation Pro (video is 7 years old but the process is still mostly the same).<br>
+After setting up the OS onto your VM, you can repeat the same process from the Raspberry Pi to install ROS2. After installing ROS2 and all of the required dependencies you need to make sure that the VM is able to communicate with the Robot. The easiest way to ensure a connection would be to use the following command in a terminal:
+```bash
+ping <hostname>
+```
+Where <hostname> must be replaced by the hostname you chose when initializing the Raspberry Pi. Make sure that the robot is powered on and connected to the same network (not eduroam as this might cause problems) as your computer. If the ping is sucessful, no further steps are required. If this ping is not successful the connection between to VM and the robot could not be established. A first step would be to set the VM's network properties to "Bridged" instead of "NAT" (default). This will expose the VM directly to the network and therefore might be solving the problem.<br>
+When using Workstation Pro there is also an option to add a virtual network interface in the settings (Edit->Virtual Network Editor->Change Settings->VMnet0). This virutal network interface can then be set to bridged and selected as the prefered network interface for the VM. If the ping is still not returned you will have to do further troubleshooting by yourself. If you cannot make this work, we recommend visiting the consultation hours.
+### MacOS
+In general you can use any VM software you prefer. Possible solution which are available for free (for non-commerical use) are Oracle's Virtual Box (no account required) or VMWare's Fusion Pro (free account required, https://www.youtube.com/watch?v=kTO810vbF_E, select Fusion instead of Workstation). Install the VM software and set up a new VM using an ubuntu image which are e.g. available at https://releases.ubuntu.com/noble/ (for Intel silicons) or "noble-desktop-arm64.iso" at https://cdimage.ubuntu.com/daily-live/20240421/ (for Apple/ARM silicons). <br>
+If this is the first VM you have ever set up, you can find many tutorials on how to do this e.g https://www.youtube.com/watch?v=nvdnQX9UkMY for VirtualBox or https://www.youtube.com/watch?v=BHpRTVP8upg for Workstation Pro (video is 7 years old but the process is still mostly the same, Fusion is the same).<br>
+After setting up the OS onto your VM, you can repeat the same process from the Raspberry Pi to install ROS2. After installing ROS2 and all of the required dependencies you need to make sure that the VM is able to communicate with the Robot. The easiest way to ensure a connection would be to use the following command in a terminal:
+```bash
+ping <hostname>
+```
+Where <hostname> must be replaced by the hostname you chose when initializing the Raspberry Pi. Make sure that the robot is powered on and connected to the same network (not eduroam as this might cause problems) as your computer. If the ping is sucessful, no further steps are required. If this ping is not successful the connection between to VM and the robot could not be established. A first step would be to set the VM's network properties to "Bridged" instead of "NAT" (default). This will expose the VM directly to the network and therefore might be solving the problem. If the ping is still not returned you will have to do further troubleshooting by yourself. If you cannot make this work, we recommend visiting the consultation hours.
 <br>
 <br>
 
@@ -585,6 +620,7 @@ You can change the ID of your ROS2 client for example to id `10` with:
 ```bash
 export ROS_DOMAIN_ID=10
 ```
+Please use your group number as ROS_DOMAIN_ID as all groups will be using the same wifi network on site.
 
 ## About Standardization
 Most things in ROS2 are standardized. This means there probably is a "standard way" to expose, for example, a topic on which velocity requests can be made. For this specific task, the topic is called `/cmd_vel` and has the type `geometry_msgs/Twist`. This standard naming and typing is mostly adhered to in this workspace. This also allows, for example, easy integration with standard ROS2 packages like `slam_toolbox`. This package expects odometry information to be published on `/odom` and a laser scan published on `/scan`. Both of these, of course, also have an expected type. Because the `controller` package that exposes the `/odom` topic adheres to this standard and `ldrobot-lidar-ros2` almost adheres to this (only the topic name needs to be changed via the launch script), integration is fairly easy. All of this is to say, if you also adhere to the sometimes unwritten rules of standard naming and typing, you can make your life a lot easier. 
@@ -595,11 +631,11 @@ If you are ready to implement some code, here are some general tips and ideas to
 ```bash
 ros2 pkg create <package_name> --build-type ament_cmake
 ```
-you can create a new cmake package, and with
+you can create a new **cmake** package, and with
 ```bash
-ros2 pkg create <package_name> --build-type ament_cmake
+ros2 pkg create <package_name> --build-type ament_python
 ```
-you create a new python package. **Make sure** you are inside your build folder (`ros_ws/src`), before entering these commands.
+you create a new **python** package. **Make sure** you are inside your build folder (`ros_ws/src`), before entering these commands.
 
 * If you installed a package via the package manager, it is installed in `/opt/ros/jazzy/share`. Some standard launch and parameter files are usually given here. If you want to use such a "standard package" you most likely need to at least adjust the launch script and the parameter files. It is best practice to **not** modify installed packages in `/opt/ros/...`, instead you should organize them inside a package of your own workspace. In our structure, both the `orchestrator_launch` and the `peripherals` package are good places for this. You can copy the given launch scripts and parameter files from `/opt/ros/jazzy/share/package_name/` into one of these packages and launch the installed packages from there.
 
