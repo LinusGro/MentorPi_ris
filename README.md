@@ -455,7 +455,7 @@ ros2 launch peripherals usb_cam.launch.py
 Follow this tutorial on camera calibration: https://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration  
 The correct command for our workspace is:
 ```bash
-ros2 run camera_calibration cameracalibrator --size MxN --square X image:=/ascamera/camera_publisher/rgb0/image camera:=/ascamer
+ros2 run camera_calibration cameracalibrator --size 8x6 --square 0.024 --ros-args --remap image:=/ascamera/camera_publisher/rgb0/image --remap camera:=/ascamera --remap camera/set_camera_info:=/usb_cam/set_camera_info
 ```
 Make sure to replace **M** with the vertical height of your calibration checkerboard and **N** with the horizontal length of your calibration checkerboard. **X** is the length of one square of the checkerboard in meters. Clicking on Upload will save the calibration file at the correct place. If everything works correctly, you can see where the file was saved in the command window in which `usb_cam` is running.  
 <br>
@@ -480,7 +480,7 @@ ros2 launch peripherals apriltag.launch.py
 This launch file references the `apriltag_config.yaml` located in the `config` folder of the `peripherals` package. This config file specifies the used detection algorithm and the tag-family. Every tag that can be detected must also be listed here. The 6 Tags of the 6 sides of the provided cube are already added to this file.\
 The AprilTag detection should now be working. To verify, place the cube in front of the camera and listen to the `/apriltag_detection` topic:
 ```bash
-ros2 topic echo /apriltag_detection
+ros2 topic echo /apriltag_detections
 ```
 <br>
 
