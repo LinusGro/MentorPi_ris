@@ -147,7 +147,7 @@ First, update your package manager:
 ```bash
 sudo apt update
 ```
-Then install the following packages:
+Then install the following packages (there might be warnings that the packages might not be supported for ROS-Jazzy but you can ignore these for now):
 * **usb_cam**
    - A ROS 2 package for interfacing with USB cameras, enabling video capture and streaming in robotic applications.
 ```bash
@@ -448,16 +448,20 @@ The AprilTag detection can only detect tags in a rectified image. Meaning straig
 <br>
 
 ### Camera Calibration
+This can be done without the HDMI cable connected but it is strongly recommended to calibrate the camera with a cable and a monitor connected.
+<br>
 You can calibrate the image with the ROS2 package `camera-calibration`. First, make sure the camera node is running:
 ```bash
 ros2 launch peripherals usb_cam.launch.py
 ```
 Follow this tutorial on camera calibration: https://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration  
-The correct command for our workspace is:
+The correct command for our workspace is (you might want to understand what --remap means because you will most certainly encounter it again):
 ```bash
-ros2 run camera_calibration cameracalibrator --size 8x6 --square 0.024 --ros-args --remap image:=/ascamera/camera_publisher/rgb0/image --remap camera:=/ascamera --remap camera/set_camera_info:=/usb_cam/set_camera_info
+ros2 run camera_calibration cameracalibrator --size MxN --square X --ros-args --remap image:=/ascamera/camera_publisher/rgb0/image --remap camera:=/ascamera --remap camera/set_camera_info:=/usb_cam/set_camera_info
 ```
-Make sure to replace **M** with the vertical height of your calibration checkerboard and **N** with the horizontal length of your calibration checkerboard. **X** is the length of one square of the checkerboard in meters. Clicking on Upload will save the calibration file at the correct place. If everything works correctly, you can see where the file was saved in the command window in which `usb_cam` is running.  
+Make sure to replace **M** with the vertical dimension of your calibration checkerboard and **N** with the horizontal dimension of your calibration checkerboard. **X** is the length of one square of the checkerboard in meters. Clicking on Upload will save the calibration file at the correct place. If everything works correctly, you can see where the file was saved in the command window in which `usb_cam` is running.
+<br>
+The checkerboads available at the lab have the properties: N=9, M=7 and X=0.1
 <br>
 <br>
 
@@ -620,7 +624,7 @@ You can change the ID of your ROS2 client for example to id `10` with:
 ```bash
 export ROS_DOMAIN_ID=10
 ```
-Please use your group number as ROS_DOMAIN_ID as all groups will be using the same wifi network on site.
+Please use your group number as ROS_DOMAIN_ID as all groups will be using the same wifi network on site and add this environment variable to the .bashrc file. 
 
 ## About Standardization
 Most things in ROS2 are standardized. This means there probably is a "standard way" to expose, for example, a topic on which velocity requests can be made. For this specific task, the topic is called `/cmd_vel` and has the type `geometry_msgs/Twist`. This standard naming and typing is mostly adhered to in this workspace. This also allows, for example, easy integration with standard ROS2 packages like `slam_toolbox`. This package expects odometry information to be published on `/odom` and a laser scan published on `/scan`. Both of these, of course, also have an expected type. Because the `controller` package that exposes the `/odom` topic adheres to this standard and `ldrobot-lidar-ros2` almost adheres to this (only the topic name needs to be changed via the launch script), integration is fairly easy. All of this is to say, if you also adhere to the sometimes unwritten rules of standard naming and typing, you can make your life a lot easier. 
