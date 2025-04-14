@@ -139,9 +139,9 @@ x	+    +----+----+
 ```
 
 
-We can calculate the indices $i,j$ given the segment number $I$ by 
+We can calculate the indices $i,j$ given the segment number $I$ by\ 
 $$I = (j-1)n+i.$$
-We also get segment number  $I$ given the indices $i,j$ by
+We also get segment number  $I$ given the indices $i,j$ by\
 $$i=((I-1)\mod n)+1 \qquad \qquad j = \Big\lfloor \frac{I-1}n \Big\rfloor + 1.$$
 
 
@@ -165,7 +165,7 @@ Important notes: A maze and its representation is valid, if
 As a final example, lets have a look at the maze below:
 ![Image3](images/maze_1.JPG)
 Putting the Origin on the top left, we identify the size as $n=13$ and $m=6$.
-The matrix representation looks like this:
+The matrix representation looks like this:\
 $$\mathcal{L} = \begin{bmatrix}
 10 & 8 & 8 & 8 & 8 & 9 \\
 2 & 0 & 4 & 4 & 0 & 1 \\
@@ -180,8 +180,7 @@ $$\mathcal{L} = \begin{bmatrix}
 2 & 0 & 0 & 0 & 0 & 1 \\
 2 & 0 & 4 & 4 & 0 & 1 \\
 10 & 8 & 8 & 8 & 8 & 9
-\end{bmatrix}
-$$
+\end{bmatrix}$$
 
 
 
