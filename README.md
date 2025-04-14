@@ -110,6 +110,15 @@ https://github.com/NikHoh/apriltag-maze
 
 To exchange and represent different mazes, we define a maze `L` of the size `m x n` using a matrix:
 
+This is a block equation:\
+$$  \mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in[1,2,\ldots,16]\quad \text{and} \quad i\in\{1,\ldots,n\} \quad j \in\{1,\ldots,m\} 
+$$
+
+This is a inline equation:
+$   \mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in[1,2,\ldots,16]$
+
+
+
 <img src="https://latex.codecogs.com/svg.image?\dpi{110}  \mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in[1,2,\ldots,16]\quad \text{and} \quad i\in\{1,\ldots,n\} \quad j \in\{1,\ldots,m\} 
 " />
 
@@ -151,7 +160,7 @@ We can calculate the segment number  `I` given the indices `i,j` by
 <img src="https://latex.codecogs.com/svg.image?i=((I-1)\mod n)+1 \qquad \qquad j = \Big\lfloor \frac{I-1}n \Big\rfloor + 1" />
 
 
-Now that `n` and `m` are determined and the cells are numbered by `I`, we define the value of the cell `l_ij=...`using a binary coding:
+Now that `n` and `m` are determined and the cells are numbered by `I`, we define the value of the cell `l_ij=...` using a binary coding:
 ```
 (0000) - no walls, but the cell is part of the maze
 (0001) - wall in postive x-direction
