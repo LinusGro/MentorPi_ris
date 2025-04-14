@@ -108,32 +108,21 @@ https://github.com/NikHoh/apriltag-maze
 
 ### Matrix representation of the maze
 
-To exchange and represent different mazes, we define a maze `L` of the size `m x n` using a matrix:
+To exchange and represent different mazes, we define a maze $L$ of the size $m \times n$ using a matrix:
+$$\mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in[1,2,\ldots,16].$$
 
-This is a block equation:\
-$$\mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in[1,2,\ldots,16]\quad \text{and} \quad i\in\{1,\ldots,n\} \quad j \in\{1,\ldots,m\}$$
-
-This is a inline equation:
-$\mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in[1,2,\ldots,16]$
+Hereby we have the column index $i\in\{1,\ldots,n\}$ counting in the $x$-direction and the row index $j \in\{1,\ldots,m\}$ counting in the $y$-direction. The value of $l_{ij}$ determines the amount of walls using a binary coding.
 
 
-
-<img src="https://latex.codecogs.com/svg.image?\dpi{110}  \mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in[1,2,\ldots,16]\quad \text{and} \quad i\in\{1,\ldots,n\} \quad j \in\{1,\ldots,m\} 
-" />
-
-
-The matrix index `i,j` hereby counts the segment of a `n x m`-maze, and the value of `l_ij` determines the amount of walls.
-
-
-Since the maze does no have to be in a rectangular shape (it can be in a L-shape, or some cornors are missing), we first determine the size `n x m` of the smallest surrounding rectangle of the maze. `n`and `m` are hereby positive integers and count the number of the baseplates in `x` and `y`-direction.
+Since the maze does no have to be in a rectangular shape (it can be in a L-shape, or some cornors are missing), we first determine the size $n \times m$ of the smallest surrounding rectangle of the maze. $n$ and $m$ are hereby positive integers and count the number of the baseplates in $x$ and $y$-direction.
 The global coordinate system's origin 𝒪 is set in one corner of the maze.
 
-Starting from the origin 𝒪, the baseplates of the maze will be numbered by a segment number `I∈{1, ..., n*m}`, which allows us to define the cell/segments. Like this, the baseplates of the maze will be numbered, starting in the `x`-direction and counting every existing, and nonexisting baseplate.
+Starting from the origin 𝒪, the baseplates of the maze will be numbered by a segment number $I\in\{1, \ldots,  nm\}$, which allows us to define the cell/segments. Like this, the baseplates of the maze will be numbered, starting from the origin 𝒪 in the $x$-direction and counting every existing, and nonexisting baseplate.
 
 ![img_mazenumbered](images/maze_numbered.png)
-*3x3 maze with `n=3, m=3` the numbered cells `I= 1,2,...,9`*
+*3x3 maze with $n=3, m=3$ and the numbered cells $I= 1,2,\ldots,9$*
 
-In the case, that some outer cells are missing, we still iterate through all *missing* baseplates. For example in this maze, cells with Index `I={4,7,9}` are not part of the maze and we get this numbering:
+In the case, that some outer cells are missing, we still iterate through all *missing* baseplates. For example in this maze, we added some walld and now cells with Index $I=\{4,7,9\}$ are not part of the maze, but we still get the same numbering:
 
 ```
 
@@ -146,20 +135,17 @@ x	+    +----+----+
 	+    +----+----+
 	|  3    6 |  9 | 
 	+----+----+----+
-	
+
 ```
 
 
-We can calculate the indices `i,j` given the segment number `I` by 
-
-<img src="https://latex.codecogs.com/svg.image?\dpi{110}  I = (j-1)n+i" />
-
-
-We can calculate the segment number  `I` given the indices `i,j` by
-<img src="https://latex.codecogs.com/svg.image?i=((I-1)\mod n)+1 \qquad \qquad j = \Big\lfloor \frac{I-1}n \Big\rfloor + 1" />
+We can calculate the indices $i,j$ given the segment number $I$ by 
+$$I = (j-1)n+i.$$
+We also get segment number  $I$ given the indices $i,j$ by
+$$i=((I-1)\mod n)+1 \qquad \qquad j = \Big\lfloor \frac{I-1}n \Big\rfloor + 1.$$
 
 
-Now that `n` and `m` are determined and the cells are numbered by `I`, we define the value of the cell `l_ij=...` using a binary coding:
+Now that $n$ and $m$ are determined and the cells are numbered by $I$, we define the value of the cell $l_{ij}=\ldots$ using a binary coding:
 ```
 (0000) - no walls, but the cell is part of the maze
 (0001) - wall in postive x-direction
@@ -168,18 +154,34 @@ Now that `n` and `m` are determined and the cells are numbered by `I`, we define
 (1000) - wall in negative y-direction
 (1111) - cell is not part of the maze
 ```
-For example, cell `5` in the example maze has a wall in positive and negative `x`-direction and hence gets the binary coding `(0011) = 3`. We therefore set `l_22=3` in the matrix representation.
+For example, cell $I=5$ in the example maze has a wall in positive and negative $x$-direction and hence gets the binary coding `(0011) = 3`. We therefore set $l_{22}=3$ in the matrix representation.
 
 
 Important notes: A maze and its representation is valid, if
 - it is closed, i.e. every outer wall exist - there is no way *in* or *out* of the maze.
-- a wall exists in one cell `I`, it must also exist in the corresponding neighboring cell. For example, cell `I=1` has a wall on the right, then cell `I=4` does need to have a wall above on the left.
-- The size `m x n` of the maze is minimal, e.g. it is not filled up with *empty*, not usable cells on either side. 
+- a wall exists in one cell $I$, it must also exist in the corresponding neighboring cell. For example, cell $I=1$ has a wall on the right, then cell $I=4$ does need to have a wall above on the left.
+- The size $n x m$ of the maze is minimal, e.g. it is not filled up with *empty*, not usable cells on either side. 
 
 As a final example, lets have a look at the maze below:
 ![Image3](images/maze_1.JPG)
-Putting the Origin on the top left, we identify the size as `n=13`and `m=6`.
+Putting the Origin on the top left, we identify the size as $n=13$ and $m=6$.
 The matrix representation looks like this:
+$$\mathcal{L} = \begin{bmatrix}
+10 & 8 & 8 & 8 & 8 & 9 \\
+2 & 0 & 4 & 4 & 0 & 1 \\
+2 & 1 & 10 & 8 & 0 & 1 \\
+2 & 1 & 6 & 4 & 0 & 1 \\
+2 & 0 & 8 & 8 & 0 & 1 \\
+2 & 0 & 0 & 0 & 0 & 1 \\
+2 & 0 & 4 & 4 & 0 & 1 \\
+2 & 1 & 10 & 8 & 0 & 1 \\
+2 & 1 & 2 & 0 & 0 & 1 \\
+10 & 9 & 4 & 0 & 0 & 1 \\
+2 & 0 & 0 & 0 & 0 & 1 \\
+2 & 0 & 4 & 4 & 0 & 1 \\
+10 & 8 & 8 & 8 & 8 & 9
+\end{bmatrix}
+$$
 
 
 
