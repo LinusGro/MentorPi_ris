@@ -94,7 +94,7 @@ Our institute features two configurable mazes, each located in a different room.
 ![Img](images/maze_details.jpg)
 *(a) modular base plates (b) wall plate (c) full 3x3 maze*
 
-![Image3](images/maze_full.JPG)
+![Image3](images/maze_full.jpg)
 *full 6x14 maze with robots driving in it*
 
 
@@ -109,7 +109,10 @@ https://github.com/NikHoh/apriltag-maze
 ### Matrix representation of the maze
 
 To exchange and represent different mazes, we define a maze $L$ of the size $m \times n$ using a matrix:
-```math\mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in\{1,2,\ldots,16\}.```
+
+```math
+\mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in\{1,2,\ldots,16\}.
+```
 
 Hereby we have the column index $i\in\{1,\ldots,n\}$ counting in the $x$-direction and the row index $j \in\{1,\ldots,m\}$ counting in the $y$-direction. The value of $l_{ij}$ determines the amount of walls using a binary coding.
 
@@ -139,10 +142,14 @@ x	+    +----+----+
 ```
 
 
-We can calculate the indices $i,j$ given the segment number $I$ by\ 
-$$I = (j-1)n+i.$$
+We can calculate the indices $i,j$ given the segment number $I$ by
+```math
+I = (j-1)n+i.
+```
 We also get segment number  $I$ given the indices $i,j$ by\
-$$i=((I-1)\mod n)+1 \qquad \qquad j = \Big\lfloor \frac{I-1}n \Big\rfloor + 1.$$
+```math
+i=((I-1)\mod n)+1 \qquad \qquad j = \Big\lfloor \frac{I-1}n \Big\rfloor + 1.
+```
 
 
 Now that $n$ and $m$ are determined and the cells are numbered by $I$, we define the value of the cell $l_{ij}=\ldots$ using a binary coding:
@@ -163,9 +170,9 @@ Important notes: A maze and its representation is valid, if
 - The size $n x m$ of the maze is minimal, e.g. it is not filled up with *empty*, not usable cells on either side. 
 
 As a final example, lets have a look at the maze below:
-![Image3](images/maze_1.JPG)
+![Image3](images/maze_1.jpg)
 Putting the Origin on the top left, we identify the size as $n=13$ and $m=6$.
-The matrix representation looks like this:\
+The matrix representation looks like this:
 ```math
 \mathcal{L} = \begin{pmatrix}
 10 & 8 & 8 & 8 & 8 & 9 \\
