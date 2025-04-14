@@ -109,7 +109,7 @@ https://github.com/NikHoh/apriltag-maze
 ### Matrix representation of the maze
 
 To exchange and represent different mazes, we define a maze $L$ of the size $m \times n$ using a matrix:
-$$\mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in\{1,2,\ldots,16\}.$$
+```math\mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in\{1,2,\ldots,16\}.```
 
 Hereby we have the column index $i\in\{1,\ldots,n\}$ counting in the $x$-direction and the row index $j \in\{1,\ldots,m\}$ counting in the $y$-direction. The value of $l_{ij}$ determines the amount of walls using a binary coding.
 
