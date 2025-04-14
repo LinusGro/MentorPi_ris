@@ -111,11 +111,10 @@ https://github.com/NikHoh/apriltag-maze
 To exchange and represent different mazes, we define a maze `L` of the size `m x n` using a matrix:
 
 This is a block equation:\
-$$  \mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in[1,2,\ldots,16]\quad \text{and} \quad i\in\{1,\ldots,n\} \quad j \in\{1,\ldots,m\} 
-$$
+$$ \mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in[1,2,\ldots,16]\quad \text{and} \quad i\in\{1,\ldots,n\} \quad j \in\{1,\ldots,m\}$$
 
 This is a inline equation:
-$   \mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in[1,2,\ldots,16]$
+$\mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in[1,2,\ldots,16]$
 
 
 
