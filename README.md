@@ -423,9 +423,18 @@ The folder `maze` contains some useful helperfunctions when working with the maz
 
 
 ## Example maze
-As a final example, lets have a look at the maze on the left. Putting the Origin on the top left, we identify the size as $n=13$ and $m=6$.
-The matrix representation looks like this:
-```math
+As a final example, lets have a look at the maze on the top left. Putting the origin on the upper left corner, we identify the size as $n=13$ and $m=6$ and get the matrix representation $\mathcal L$. Using the functions, we can draw the maze in ascii-style or plot it.
+
+<table>
+  <tr>
+    <td>
+	      <p><strong>Original Maze</strong></p>
+      <img src="images/maze_1_crop.png" alt="Original Maze" width="250">
+    </td>
+    <td>
+      <p><strong>Matrix Representation</strong></p>
+      <pre>
+\[
 \mathcal{L} = \begin{pmatrix}
 10 & 2 & 2 & 2 & 2 & 6 \\
 8 & 0 & 1 & 1 & 0 & 4 \\
@@ -442,24 +451,14 @@ The matrix representation looks like this:
 8 & 0 & 2 & 2 & 0 & 4 \\
 9 & 1 & 1 & 1 & 1 & 5
 \end{pmatrix}
-```
-With the functions, we can draw the maze in ascii-style or plotted:
-
-<table>
-  <thead>
-    <tr>
-      <th>Original Image</th>
-      <th>Maze ASCII Style</th>
-      <th>Maze Plotted</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>
-        <img src="images/maze_1_crop.png" alt="Original Maze" width="600">
-      </td>
-      <td>
-        <pre style="font-family: monospace; font-size: 6px;">
+\]
+      </pre>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <p><strong>ASCII Maze</strong></p>
+      <pre style="font-family: monospace; font-size: 12px;">
 +---+---+---+---+---+---+
 |                       |
 +   +   +   +   +   +   +
@@ -489,14 +488,15 @@ With the functions, we can draw the maze in ascii-style or plotted:
 +   +   +   +   +   +   +
 |                       |
 +---+---+---+---+---+---+
-        </pre>
-      </td>
-      <td>
-        <img src="images/maze_plotted.png" alt="Plotted Maze" width="300">
-      </td>
-    </tr>
-  </tbody>
+      </pre>
+    </td>
+    <td>
+      <p><strong>Plotted Maze</strong></p>
+      <img src="images/maze_plotted.png" alt="Plotted Maze" width="250">
+    </td>
+  </tr>
 </table>
+
 
 
 
