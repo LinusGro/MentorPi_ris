@@ -419,7 +419,7 @@ The folder `maze` contains some useful helperfunctions when working with the maz
 - `isolate_unreachable_cells_and_trim.py`marks unreachable cells in the maze with `(1111)` and trims the maze, if all outer cells in a row/column are non-reachable
 - `draw_ascii_maze.py` draws a maze in ascii-style in the console
 - `plot_maze.py`generates a plot of the maze
-
+- `test_maze_functions.py` gives an example on how to use the functions
 
 
 ## Example maze
@@ -429,19 +429,20 @@ Putting the Origin on the top left, we identify the size as $n=13$ and $m=6$.
 The matrix representation looks like this:
 ```math
 \mathcal{L} = \begin{pmatrix}
-10 & 8 & 8 & 8 & 8 & 9 \\
-2 & 0 & 4 & 4 & 0 & 1 \\
-2 & 1 & 10 & 8 & 0 & 1 \\
-2 & 1 & 6 & 4 & 0 & 1 \\
-2 & 0 & 8 & 8 & 0 & 1 \\
-2 & 0 & 0 & 0 & 0 & 1 \\
-2 & 0 & 4 & 4 & 0 & 1 \\
-2 & 1 & 10 & 8 & 0 & 1 \\
-2 & 1 & 2 & 0 & 0 & 1 \\
-10 & 9 & 4 & 0 & 0 & 1 \\
-2 & 0 & 0 & 0 & 0 & 1 \\
-2 & 0 & 4 & 4 & 0 & 1 \\
-10 & 8 & 8 & 8 & 8 & 9
+10 & 2 & 2 & 2 & 2 & 6 \\
+8 & 0 & 1 & 1 & 0 & 4 \\
+8 & 4 & 10 & 2 & 0 & 4 \\
+8 & 4 & 9 & 1 & 0 & 4 \\
+8 & 0 & 2 & 2 & 0 & 4 \\
+9 & 1 & 0 & 0 & 1 & 5 \\
+10 & 2 & 0 & 0 & 2 & 6 \\
+8 & 0 & 1 & 1 & 0 & 4 \\
+8 & 0 & 2 & 6 & 8 & 4 \\
+9 & 1 & 0 & 4 & 8 & 4 \\
+10 & 2 & 0 & 0 & 0 & 4 \\
+8 & 0 & 1 & 1 & 0 & 4 \\
+8 & 0 & 2 & 2 & 0 & 4 \\
+9 & 1 & 1 & 1 & 1 & 5
 \end{pmatrix}
 ```
 With the functions, we can draw the maze:
