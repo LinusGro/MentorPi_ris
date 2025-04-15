@@ -433,7 +433,7 @@ As a final example, lets have a look at the maze on the top left. Putting the or
     </td>
     <td>
       <p><strong>Matrix Representation</strong></p>
-		      <img src="images/matrix_L.png" alt="matrixL" width="150">
+		      <img src="images/matrix_L.png" alt="matrixL" width="250">
     </td>
   </tr>
   <tr>
