@@ -338,7 +338,7 @@ To exchange and represent different mazes, we define a maze $L$ of the size $n \
 \mathcal L = [l_{ij}]\in \mathbb{B}^{n\times m} \quad \text{with} \quad \mathbb{B}=\{b\in\mathbb{Z}\,\mid\,0\leq b \leq 2^4-1=15\}.
 ```
 The matrix entries are hereby integers $l_{ij}\in\mathbb{B}=\\{0,1,\ldots,15\\}$ with $\mathbb B$ being the 4 bit range of values.
-The column index $i\in\\{1,\ldots,n\\}$ is counting in the $x$-direction and the row index $j \in\\{1,\ldots,m\\}$ is counting in the $y$-direction. The value of $l_{ij}$ determines the amount of walls using a 4 bit coding.
+The column index $i\in\\{1,\ldots,n\\}$ is counting in the $x$-direction and the row index $j \in\\{1,\ldots,m\\}$ is counting in the $y$-direction. The value of $l_{ij}$ determines the amount of walls of a cell using a 4 bit coding, which will be explained below.
 
 
 Since the maze does no have to be in a rectangular shape (it can be in a L-shape, or some corners are missing), we first determine the size $n \times m$ of the smallest surrounding rectangle of the maze. $n$ and $m$ are hereby positive integers and count the number of the baseplates in $x$ and $y$-direction.
