@@ -459,7 +459,7 @@ With the functions, we can draw the maze in ascii-style or plotted:
         <img src="images/maze_1_crop.png" alt="Original Maze" width="600">
       </td>
       <td>
-        <pre style="font-family: monospace; font-size: 8px;">
+        <pre style="font-family: monospace; font-size: 6px;">
 +---+---+---+---+---+---+
 |                       |
 +   +   +   +   +   +   +
@@ -492,7 +492,7 @@ With the functions, we can draw the maze in ascii-style or plotted:
         </pre>
       </td>
       <td>
-        <img src="images/maze_plotted.png" alt="Plotted Maze" width="200">
+        <img src="images/maze_plotted.png" alt="Plotted Maze" width="300">
       </td>
     </tr>
   </tbody>
