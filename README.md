@@ -20,7 +20,7 @@ This repository aims to provide a reasonable starting position for ROS2 developm
 # Table of Contents
 - [General Information](#general-information)
    - [Basic Knowledge](#basic-knowledge)
-   - [The Maze](#the-maze)
+
 - [Basic Setup](#basic-setup)  
    - [Linux Setup](#linux-setup)
    - [Installing ROS2](#installing-ros2)
@@ -31,6 +31,9 @@ This repository aims to provide a reasonable starting position for ROS2 developm
 - [ROS2 on an additional computer](#ros2-on-an-additional-computer)
    - [Computer running Ubuntu](#computer-running-ubuntu)
    - [Computer running Windows or macOS](#computer-running-windows-or-macos)
+- [The Maze](#the-maze)
+	- [Matrix representation of the maze](#matrix-representation-of-the-maze)
+	- [Implementation of the maze](#implementation-of-the-maze)
 - [Testing](#testing)  
    - [Test the Camera](#test-the-camera)
       - [Test the Camera with a connected Monitor](#test-the-camera-with-a-connected-monitor)
@@ -82,241 +85,11 @@ Before starting, some basic knowledge should be available. In case you are not f
     - basic functionality of an IMU, LIDAR and encoders
 - General coding advice: Don't copy paste commands blindfold. Try to understand what's the purpose of the command and also read what happens in the console output (especially, when there are errors). ChatGPT can be a great help in explaining the functionality of commands, interpreting error messages, and assisting with debugging. However, **ChatGPT does not replace a thinking brain sitting in front of the laptop**, and you should always try to understand what you are typing into the console and why.
 
-![img](images/meme_chatgpt_small.png)
+<div style="display: flex; gap: 10px; align-items: flex-start;">
+  <img src="images/meme_chatgpt_small.png" alt="Meme" width="300"/>
+  <img src="images/robo_debugging.png" alt="Robo debugging" width="300"/>
+</div>
 
-
-## The Maze
-The maze can be set up modularly in size and configuration and consists of base plates and wall plates, which are placed on the base plates.
-The base plates have a size of approx 254mm x 254mm and define a segment/cell of the maze. The wall plates are made of 250mm x 170mm x 3mm MDF. With 3D printed sockets, the wall plates can be mounted on each side of a base  plate.  
-Our institute features two configurable mazes, each located in a different room. The shape of the maze can be freely chosen—whether square, rectangular, L-shaped, or any other form. The only requirements are that all outer walls must be in place and the maze remains fully connected, ensuring there are no isolated areas. 
-
-
-![Img](images/maze_details.jpg)
-*(a) modular base plates (b) wall plate (c) full 3x3 maze*
-
-![Image3](images/maze_full.jpg)
-*full 6x14 maze with robots driving in it*
-
-
-
-
-Some wall plates of the maze are laser-engraved with recursive AprilTags - these can be ignored! They were used in last years project seminar by the robot to localize itself.
-More information on the arena, e.g. on size of the base and wall plates can be found in a separate repository:
-
-https://github.com/NikHoh/apriltag-maze
-
-
-### Matrix representation of the maze
-
-To exchange and represent different mazes, we define a maze $L$ of the size $m \times n$ using a matrix:
-
-```math
-\mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in\{1,2,\ldots,16\}.
-```
-
-Hereby we have the column index $i\in`\{1,\ldots,n\}`$ counting in the $x$-direction and the row index $j \in`\{1,\ldots,m\}`$ counting in the $y$-direction. The value of $l_{ij}$ determines the amount of walls using a binary coding.
-
-
-Since the maze does no have to be in a rectangular shape (it can be in a L-shape, or some cornors are missing), we first determine the size $n \times m$ of the smallest surrounding rectangle of the maze. $n$ and $m$ are hereby positive integers and count the number of the baseplates in $x$ and $y$-direction.
-The global coordinate system's origin 𝒪 is set in one corner of the maze.
-
-Starting from the origin 𝒪, the baseplates of the maze will be numbered by a segment number $I\in`\{1, \ldots,  nm\}`$, which allows us to define the cell/segments. Like this, the baseplates of the maze will be numbered, starting from the origin 𝒪 in the $x$-direction and counting every existing, and nonexisting baseplate.
-
-![img_mazenumbered](images/maze_numbered.png)
-*3x3 maze with $n=3, m=3$ and the numbered cells $I= 1,2,\ldots,9$*
-
-In the case, that some outer cells are missing, we still iterate through all *missing* baseplates. For example in this maze, we added some walls and now cells with Index $I=`\{4,7,9\}`$ are not part of the maze, but we still get the same numbering:
-
-```
-
-	+---+---+---+
-	| 1 | 4 | 7 |
-	+   +---+---+
- 	| 2   5   8 |
-	+   +---+---+
-	| 3   6 | 9 | 
-	+---+---+---+
-
-```
-
-
-We can calculate the indices $i,j$ given the segment number $I$ by
-```math
-I = (j-1)n+i.
-```
-We also get segment number  $I$ given the indices $i,j$ by
-```math
-i=((I-1)\mod n)+1 \qquad \qquad j = \Big\lfloor \frac{I-1}n \Big\rfloor + 1.
-```
-
-
-Now that $n$ and $m$ are determined and the cells are numbered by $I$, we define the value of the cell $l_{ij}=\ldots$ using a binary coding:
-```
-(0000) - no walls, but the cell is part of the maze
-(0001) - wall in postive x-direction
-(0010) - wall in negative x-direction
-(0100) - wall in positive y-direction
-(1000) - wall in negative y-direction
-(1111) - cell is not part of the maze
-```
-For example, cell $I=5$ in the example maze has a wall in positive and negative $x$-direction and hence gets the binary coding `(0011) = 3`. We therefore set $l_{22}=3$ in the matrix representation.
-This table helps with the correspondance:
-```
-0 = (000)
-	+   +
-	
-	+   +
-1 = (0001)
-	+   +
-	    
-	+---+
-2 = (0010)
-	+---+
-	    
-	+   +
-3 = (0011)
-	+---+
-	    
-	+---+
-4 = (0100)
-	+   +
-	    |
-	+   +
-5 = (0101)
-	+   +
-	    |
-	+---+
-6 = (0110)
-	+---+
-	    |
-	+   +
-7 = (0111)
-	+---+
-	    |
-	+---+
-8 = (1000)
-	+   +
-	|   
-	+   +
-9 = (1001)
-	+   +
-	|   
-	+---+
-10 = (1010)
-	+---+
-	|   
-	+   +
-11 = (1011)
-	+---+
-	|   
-	+---+
-12 = (1100)
-	+   +
-	|   |
-	+   +
-13 = (1101)
-	+   +
-	|   |
-	+---+
-14 = (1110)
-	+---+
-	|   |
-	+   +
-15 = (1111)
-	+---+
-	|   |
-	+---+
-
-```
-
-Important notes: A maze and its representation is valid, if
-- it is closed, i.e. every outer wall exist - there is no way *in* or *out* of the maze.
-- a wall exists in one cell $I$, it must also exist in the corresponding neighboring cell. For example, cell $I=1$ has a wall on the right, then cell $I=4$ does need to have a wall above on the left.
-- The size $n x m$ of the maze is minimal, e.g. it is not filled up with *empty*, not usable cells on either side. 
-
-As a final example, lets have a look at the maze below:
-![Image3](images/maze_1_crop.jpg)
-Putting the Origin on the top left, we identify the size as $n=13$ and $m=6$.
-The matrix representation looks like this:
-```math
-\mathcal{L} = \begin{pmatrix}
-10 & 8 & 8 & 8 & 8 & 9 \\
-2 & 0 & 4 & 4 & 0 & 1 \\
-2 & 1 & 10 & 8 & 0 & 1 \\
-2 & 1 & 6 & 4 & 0 & 1 \\
-2 & 0 & 8 & 8 & 0 & 1 \\
-2 & 0 & 0 & 0 & 0 & 1 \\
-2 & 0 & 4 & 4 & 0 & 1 \\
-2 & 1 & 10 & 8 & 0 & 1 \\
-2 & 1 & 2 & 0 & 0 & 1 \\
-10 & 9 & 4 & 0 & 0 & 1 \\
-2 & 0 & 0 & 0 & 0 & 1 \\
-2 & 0 & 4 & 4 & 0 & 1 \\
-10 & 8 & 8 & 8 & 8 & 9
-\end{pmatrix}
-```
-For solving a known maze, [Wikipedia](https://en.wikipedia.org/wiki/Maze-solving_algorithm) is a good starting point for maze solving algorithms.
-Here it is useful, to represent a maze as a graph $\mathcal G$, where the edges correspond to the cells and vertices represent connected cells:
-![ImgMaze2Graph](images/maze2graph.png)
-## Implementation of the maze
-The folder `maze` contains some useful helperfunctions when working with the mazes:
-- `generate_random_maze.py` generates a random maze given a specific size and filling factor
-- `ascii_to_L.py` generates an maze L given a drawn maze in ascii-style in a `.txt`-file.
-	- 3 dashes `---` represent a horizontal wall
-	- 3 empty spaces `␣␣␣` represents the absence of a horizontal wall
-	- `|` represents a vertical wall
-	- `+`represents the corner of a cell
-	- Important: You cant use tabs, use blank space characters!
-- `validate_maze.py`checks if a maze L is valid
-	- all entries in L are in `[0,...,15]`
-	- if a wall exists on one cell, it must exist on the neighboring cell
-	- all nonreachable cells are marked with `(1111)` 
-	- all outer walls exist
-	- checks, if the maze is minimum size or if it can be trimmed, ie if all cells in an outer row/column are non-reachable
-- `isolate_unreachable_cells_and_trim.py`marks unreachable cells in the maze with `(1111)` and trims the maze, if all outer cells in a row/column are non-reachable
-- `draw_ascii_maze.py` draws a maze in ascii-style in the console
-- `plot_maze.py`generates a plot of the maze
-
-<table>
-  <tr>
-    <td>
-      <pre style="font-family: monospace">
-+---+---+---+---+---+---+
-|                       |
-+   +   +   +   +   +   +
-|                       |
-+   +   +---+---+   +   +
-|       |               |
-+   +   +   +   +   +   +
-|       |               |
-+   +   +---+---+   +   +
-|                       |
-+   +   +   +   +   +   +
-|                       |
-+---+---+   +   +---+---+
-|                       |
-+   +   +   +   +   +   +
-|                       |
-+   +   +---+---+   +   +
-|               |       |
-+   +   +   +   +   +   +
-|               |       |
-+---+---+   +   +   +   +
-|                       |
-+   +   +   +   +   +   +
-|                       |
-+   +   +---+---+   +   +
-|                       |
-+   +   +   +   +   +   +
-|                       |
-+---+---+---+---+---+---+
-      </pre>
-    </td>
-    <td>
-      <img src="images/maze_plotted.png" alt="Maze image" />
-    </td>
-  </tr>
-</table>
 
 
 # Basic Setup
@@ -563,6 +336,258 @@ ping <hostname>
 Where <hostname> must be replaced by the hostname you chose when initializing the Raspberry Pi. Make sure that the robot is powered on and connected to the same network (not eduroam as this might cause problems) as your computer. If the ping is sucessful, no further steps are required. If this ping is not successful the connection between to VM and the robot could not be established. A first step would be to set the VM's network properties to "Bridged" instead of "NAT" (default). This will expose the VM directly to the network and therefore might be solving the problem. If the ping is still not returned you will have to do further troubleshooting by yourself. If you cannot make this work, we recommend visiting the consultation hours.
 <br>
 <br>
+
+
+# The Maze
+The maze can be set up modularly in size and configuration and consists of base plates and wall plates, which are placed on the base plates.
+The base plates have a size of approx 254mm x 254mm and define a segment/cell of the maze. The wall plates are made of 250mm x 170mm x 3mm MDF. With 3D printed sockets, the wall plates can be mounted on each side of a base  plate.  
+Our institute features two configurable mazes, each located in a different room. The shape of the maze can be freely chosen—whether square, rectangular, L-shaped, or any other form. The only requirements are that all outer walls must be in place and the maze remains fully connected, ensuring there are no isolated areas. 
+
+
+![Img](images/maze_details.jpg)
+*(a) modular base plates (b) wall plate (c) full 3x3 maze*
+
+![Image3](images/maze_full.jpg)
+*full 6x14 maze with robots driving in it*
+
+
+
+
+Some wall plates of the maze are laser-engraved with recursive AprilTags - these can be ignored! They were used in last years project seminar by the robot to localize itself.
+More information on the arena, e.g. on size of the base and wall plates can be found in a separate repository:
+
+https://github.com/NikHoh/apriltag-maze
+
+
+## Matrix representation of the maze
+
+To exchange and represent different mazes, we define a maze $L$ of the size $m \times n$ using a matrix:
+
+```math
+\mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in\{1,2,\ldots,16\}.
+```
+
+Hereby we have the column index $i\in`\{1,\ldots,n\}`$ counting in the $x$-direction and the row index $j \in`\{1,\ldots,m\}`$ counting in the $y$-direction. The value of $l_{ij}$ determines the amount of walls using a binary coding.
+
+
+Since the maze does no have to be in a rectangular shape (it can be in a L-shape, or some cornors are missing), we first determine the size $n \times m$ of the smallest surrounding rectangle of the maze. $n$ and $m$ are hereby positive integers and count the number of the baseplates in $x$ and $y$-direction.
+The global coordinate system's origin 𝒪 is set in one corner of the maze.
+
+Starting from the origin 𝒪, the baseplates of the maze will be numbered by a segment number $I\in`\{1, \ldots,  nm\}`$, which allows us to define the cell/segments. Like this, the baseplates of the maze will be numbered, starting from the origin 𝒪 in the $x$-direction and counting every existing, and nonexisting baseplate.
+
+![img_mazenumbered](images/maze_numbered.png)
+*3x3 maze with $n=3, m=3$ and the numbered cells $I= 1,2,\ldots,9$*
+
+In the case, that some outer cells are missing, we still iterate through all *missing* baseplates. For example in this maze, we added some walls and now cells with Index $I=`\{4,7,9\}`$ are not part of the maze, but we still get the same numbering:
+
+```
++---+---+---+
+| 1 | 4 | 7 |
++   +---+---+
+| 2   5   8 |
++   +---+---+
+| 3   6 | 9 | 
++---+---+---+
+```
+
+
+We can calculate the indices $i,j$ given the segment number $I$ by
+```math
+I = (j-1)n+i.
+```
+We also get segment number  $I$ given the indices $i,j$ by
+```math
+i=((I-1)\mod n)+1 \qquad \qquad j = \Big\lfloor \frac{I-1}n \Big\rfloor + 1.
+```
+
+
+Now that $n$ and $m$ are determined and the cells are numbered by $I$, we define the value of the cell $l_{ij}=\ldots$ using a binary coding:
+```
+(0000) - no walls, but the cell is part of the maze
+(0001) - wall in postive x-direction
+(0010) - wall in negative x-direction
+(0100) - wall in positive y-direction
+(1000) - wall in negative y-direction
+(1111) - cell is not part of the maze
+```
+For example, cell $I=5$ in the example maze has a wall in positive and negative $x$-direction and hence gets the binary coding `(0011) = 3`. We therefore set $l_{22}=3$ in the matrix representation.
+This table helps with the correspondance:
+<table border="1" cellspacing="0" cellpadding="6">
+  <thead>
+    <tr>
+      <th>Idx</th><th>Bin</th><th>Cell</th>
+      <th>Idx</th><th>Bin</th><th>Cell</th>
+      <th>Idx</th><th>Bin</th><th>Cell</th>
+      <th>Idx</th><th>Bin</th><th>Cell</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td><td>(0000)</td><td><pre>+   +
+    
++   +</pre></td>
+      <td>1</td><td>(0001)</td><td><pre>+   +
+    
++---+</pre></td>
+      <td>2</td><td>(0010)</td><td><pre>+---+
+    
++   +</pre></td>
+      <td>3</td><td>(0011)</td><td><pre>+---+
+    
++---+</pre></td>
+    </tr>
+    <tr>
+      <td>4</td><td>(0100)</td><td><pre>+   +
+    |
++   +</pre></td>
+      <td>5</td><td>(0101)</td><td><pre>+   +
+    |
++---+</pre></td>
+      <td>6</td><td>(0110)</td><td><pre>+---+
+    |
++   +</pre></td>
+      <td>7</td><td>(0111)</td><td><pre>+---+
+    |
++---+</pre></td>
+    </tr>
+    <tr>
+      <td>8</td><td>(1000)</td><td><pre>+   +
+|    
++   +</pre></td>
+      <td>9</td><td>(1001)</td><td><pre>+   +
+|    
++---+</pre></td>
+      <td>10</td><td>(1010)</td><td><pre>+---+
+|    
++   +</pre></td>
+      <td>11</td><td>(1011)</td><td><pre>+---+
+|    
++---+</pre></td>
+    </tr>
+    <tr>
+      <td>12</td><td>(1100)</td><td><pre>+   +
+|   |
++   +</pre></td>
+      <td>13</td><td>(1101)</td><td><pre>+   +
+|   |
++---+</pre></td>
+      <td>14</td><td>(1110)</td><td><pre>+---+
+|   |
++   +</pre></td>
+      <td>15</td><td>(1111)</td><td><pre>+---+
+|   |
++---+</pre></td>
+    </tr>
+  </tbody>
+</table>
+
+
+**Important notes**: A maze and its representation is valid, if
+- it is closed, i.e. every outer wall exist - there is no way *in* or *out* of the maze.
+- a wall exists in one cell $I$, it must also exist in the corresponding neighboring cell. For example, cell $I=1$ has a wall on the right, then cell $I=4$ does need to have a wall above on the left.
+- The size $n \times m$ of the maze is minimal, e.g. it is not filled up with *empty*, not usable cells on either side. 
+- The maze is atleast $2\times 2$ and the first cell at the origin is not fully enclosed.
+
+As a final example, lets have a look at the maze below:
+![Image3](images/maze_1_crop.jpg)
+Putting the Origin on the top left, we identify the size as $n=13$ and $m=6$.
+The matrix representation looks like this:
+```math
+\mathcal{L} = \begin{pmatrix}
+10 & 8 & 8 & 8 & 8 & 9 \\
+2 & 0 & 4 & 4 & 0 & 1 \\
+2 & 1 & 10 & 8 & 0 & 1 \\
+2 & 1 & 6 & 4 & 0 & 1 \\
+2 & 0 & 8 & 8 & 0 & 1 \\
+2 & 0 & 0 & 0 & 0 & 1 \\
+2 & 0 & 4 & 4 & 0 & 1 \\
+2 & 1 & 10 & 8 & 0 & 1 \\
+2 & 1 & 2 & 0 & 0 & 1 \\
+10 & 9 & 4 & 0 & 0 & 1 \\
+2 & 0 & 0 & 0 & 0 & 1 \\
+2 & 0 & 4 & 4 & 0 & 1 \\
+10 & 8 & 8 & 8 & 8 & 9
+\end{pmatrix}
+```
+For solving a known maze, [Wikipedia](https://en.wikipedia.org/wiki/Maze-solving_algorithm) is a good starting point for maze solving algorithms.
+Here it is useful, to represent a maze as a graph $\mathcal G$, where the edges correspond to the cells and vertices represent connected cells:
+![ImgMaze2Graph](images/maze2graph.png)
+
+## Implementation of the maze
+The folder `maze` contains some useful helperfunctions when working with the mazes:
+- `generate_random_maze.py` generates a random maze given a specific size and filling factor
+- `ascii_to_L.py` generates an maze L given a drawn maze in ascii-style in a `.txt`-file.
+	- 3 dashes `---` represent a horizontal wall
+	- 3 empty spaces `␣␣␣` represents the absence of a horizontal wall
+	- `|` represents a vertical wall
+	- `+`represents the corner of a cell
+	- Important: You cant use tabs, use blank space characters!
+- `validate_maze.py`checks if a maze L is valid
+	- all entries in L are in `[0,...,15]`
+	- if a wall exists on one cell, it must exist on the neighboring cell
+	- all nonreachable cells are marked with `(1111)` 
+	- all outer walls exist
+	- checks, if the maze is minimum size or if it can be trimmed, ie if all cells in an outer row/column are non-reachable
+- `isolate_unreachable_cells_and_trim.py`marks unreachable cells in the maze with `(1111)` and trims the maze, if all outer cells in a row/column are non-reachable
+- `draw_ascii_maze.py` draws a maze in ascii-style in the console
+- `plot_maze.py`generates a plot of the maze
+
+<table>
+  <thead>
+    <tr>
+      <th>Maze ASCII Style</th>
+      <th>Maze Plotted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <pre style="font-family: monospace">
++---+---+---+---+---+---+
+|                       |
++   +   +   +   +   +   +
+|                       |
++   +   +---+---+   +   +
+|       |               |
++   +   +   +   +   +   +
+|       |               |
++   +   +---+---+   +   +
+|                       |
++   +   +   +   +   +   +
+|                       |
++---+---+   +   +---+---+
+|                       |
++   +   +   +   +   +   +
+|                       |
++   +   +---+---+   +   +
+|               |       |
++   +   +   +   +   +   +
+|               |       |
++---+---+   +   +   +   +
+|                       |
++   +   +   +   +   +   +
+|                       |
++   +   +---+---+   +   +
+|                       |
++   +   +   +   +   +   +
+|                       |
++---+---+---+---+---+---+
+        </pre>
+      </td>
+      <td>
+        <img src="images/maze_plotted.png" alt="Maze image" style="max-width: 100%;">
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
 
 # Testing
 If you successfully installed everything we can start testing.
