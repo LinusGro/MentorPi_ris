@@ -413,7 +413,7 @@ The folder `maze` contains some useful helperfunctions when working with the maz
 - `validate_maze.py`checks if a maze L is valid
 	- all entries in L are in `[0,...,15]`
 	- if a wall exists on one cell, it must exist on the neighboring cell
-	- all nonreachable cells are marked with `(1111)` 
+	- all nonreachable cells are marked with `(1111)=15` 
 	- all outer walls exist
 	- checks, if the maze is minimum size or if it can be trimmed, ie if all cells in an outer row/column are non-reachable
 - `isolate_unreachable_cells_and_trim.py`marks unreachable cells in the maze with `(1111)` and trims the maze, if all outer cells in a row/column are non-reachable
