@@ -33,6 +33,7 @@ This repository aims to provide a reasonable starting position for ROS2 developm
    - [Computer running Windows or macOS](#computer-running-windows-or-macos)
 - [The Maze](#the-maze)
 	- [Matrix representation of the maze](#matrix-representation-of-the-maze)
+	- [Example maze](#example-maze)
 	- [Implementation of the maze](#implementation-of-the-maze)
 - [Testing](#testing)  
    - [Test the Camera](#test-the-camera)
@@ -376,7 +377,7 @@ The global coordinate system's origin 𝒪 is set in one corner of the maze.
 Starting from the origin 𝒪, the baseplates of the maze will be numbered by a segment number $I\in\\{1, \ldots,  nm\\}$, which allows us to define the cell/segments. Like this, the baseplates of the maze will be numbered, starting from the origin 𝒪 in the $x$-direction and counting every existing, and nonexisting baseplate.
 
 ![img_mazenumbered](images/maze_numbered.png)
-*3x3 maze with $n=3, m=3$ and the numbered cells $I= 1,2,\ldots,9$*
+*3x3 maze with n=3, m=3 and the numbered cells I= 1,2,...,9*
 
 In the case, that some outer cells are missing, we still iterate through all *missing* baseplates. For example in this maze, we added some walls and now cells with Index $I=\\{4,7,9\\}$ are not part of the maze, but we still get the same numbering:
 
@@ -395,7 +396,7 @@ We can calculate the indices $i,j$ given the segment number $I$ by
 ```math
 I = (j-1)n+i.
 ```
-We also get segment number  $I$ given the indices $i,j$ by
+We also get segment number  $I$ given the indices $i,j$ by using the modulo and floor function:
 ```math
 i=((I-1)\mod n)+1 \qquad \qquad j = \Big\lfloor \frac{I-1}n \Big\rfloor + 1.
 ```
@@ -411,7 +412,20 @@ Now that $n$ and $m$ are determined and the cells are numbered by $I$, we define
 (1111) - cell is not part of the maze
 ```
 For example, cell $I=5$ in the example maze has a wall in positive and negative $x$-direction and hence gets the binary coding `(0011) = 3`. We therefore set $l_{22}=3$ in the matrix representation.
-This table helps with the correspondance:<table border="1" cellspacing="0" cellpadding="6">
+This table helps with the correspondance:<style>
+  .cell-pre {
+    font-family: monospace;
+    font-size: 13px;
+    line-height: 1.2;
+    display: block;
+    width: 5ch;
+    height: 3.5em;
+    white-space: pre;
+    margin: 0;
+  }
+</style>
+
+<table border="1" cellspacing="0" cellpadding="6">
   <thead>
     <tr>
       <th>Idx</th><th>Bin</th><th>Cell</th>
@@ -422,63 +436,64 @@ This table helps with the correspondance:<table border="1" cellspacing="0" cellp
   </thead>
   <tbody>
     <tr>
-      <td>0</td><td>(0000)</td><td><pre>+   +
-    
-+   +</pre></td>
-      <td>1</td><td>(0001)</td><td><pre>+   +
-    
-+---+</pre></td>
-      <td>2</td><td>(0010)</td><td><pre>+---+
-    
-+   +</pre></td>
-      <td>3</td><td>(0011)</td><td><pre>+---+
-    
-+---+</pre></td>
+      <td>0</td><td>(0000)</td><td><pre class="cell-pre">&#43;   &#43;
+     
+&#43;   &#43;</pre></td>
+      <td>1</td><td>(0001)</td><td><pre class="cell-pre">&#43;   &#43;
+     
+&#43;---&#43;</pre></td>
+      <td>2</td><td>(0010)</td><td><pre class="cell-pre">&#43;---&#43;
+     
+&#43;   &#43;</pre></td>
+      <td>3</td><td>(0011)</td><td><pre class="cell-pre">&#43;---&#43;
+     
+&#43;---&#43;</pre></td>
     </tr>
     <tr>
-      <td>4</td><td>(0100)</td><td><pre>+   +
-|   
-+   +</pre></td>
-      <td>5</td><td>(0101)</td><td><pre>+   +
-|   
-+---+</pre></td>
-      <td>6</td><td>(0110)</td><td><pre>+---+
-|   
-+   +</pre></td>
-      <td>7</td><td>(0111)</td><td><pre>+---+
-|   
-+---+</pre></td>
+      <td>4</td><td>(0100)</td><td><pre class="cell-pre">&#43;   &#43;
+|    
+&#43;   &#43;</pre></td>
+      <td>5</td><td>(0101)</td><td><pre class="cell-pre">&#43;   &#43;
+|    
+&#43;---&#43;</pre></td>
+      <td>6</td><td>(0110)</td><td><pre class="cell-pre">&#43;---&#43;
+|    
+&#43;   &#43;</pre></td>
+      <td>7</td><td>(0111)</td><td><pre class="cell-pre">&#43;---&#43;
+|    
+&#43;---&#43;</pre></td>
     </tr>
     <tr>
-      <td>8</td><td>(1000)</td><td><pre>+   +
-|   
-+   +</pre></td>
-      <td>9</td><td>(1001)</td><td><pre>+   +
-|   
-+---+</pre></td>
-      <td>10</td><td>(1010)</td><td><pre>+---+
-|   
-+   +</pre></td>
-      <td>11</td><td>(1011)</td><td><pre>+---+
-|   
-+---+</pre></td>
+      <td>8</td><td>(1000)</td><td><pre class="cell-pre">&#43;   &#43;
+|    
+&#43;   &#43;</pre></td>
+      <td>9</td><td>(1001)</td><td><pre class="cell-pre">&#43;   &#43;
+|    
+&#43;---&#43;</pre></td>
+      <td>10</td><td>(1010)</td><td><pre class="cell-pre">&#43;---&#43;
+|    
+&#43;   &#43;</pre></td>
+      <td>11</td><td>(1011)</td><td><pre class="cell-pre">&#43;---&#43;
+|    
+&#43;---&#43;</pre></td>
     </tr>
     <tr>
-      <td>12</td><td>(1100)</td><td><pre>+   +
+      <td>12</td><td>(1100)</td><td><pre class="cell-pre">&#43;   &#43;
 |   |
-+   +</pre></td>
-      <td>13</td><td>(1101)</td><td><pre>+   +
+&#43;   &#43;</pre></td>
+      <td>13</td><td>(1101)</td><td><pre class="cell-pre">&#43;   &#43;
 |   |
-+---+</pre></td>
-      <td>14</td><td>(1110)</td><td><pre>+---+
+&#43;---&#43;</pre></td>
+      <td>14</td><td>(1110)</td><td><pre class="cell-pre">&#43;---&#43;
 |   |
-+   +</pre></td>
-      <td>15</td><td>(1111)</td><td><pre>+---+
+&#43;   &#43;</pre></td>
+      <td>15</td><td>(1111)</td><td><pre class="cell-pre">&#43;---&#43;
 |   |
-+---+</pre></td>
+&#43;---&#43;</pre></td>
     </tr>
   </tbody>
 </table>
+
 
 
 **Important notes**: A maze and its representation is valid, if
@@ -487,27 +502,8 @@ This table helps with the correspondance:<table border="1" cellspacing="0" cellp
 - The size $n \times m$ of the maze is minimal, e.g. it is not filled up with *empty*, not usable cells on either side. 
 - The maze is atleast $2\times 2$ and the first cell at the origin is not fully enclosed.
 
-As a final example, lets have a look at the maze below:
-![Image3](images/maze_1_crop.jpg)
-Putting the Origin on the top left, we identify the size as $n=13$ and $m=6$.
-The matrix representation looks like this:
-```math
-\mathcal{L} = \begin{pmatrix}
-10 & 8 & 8 & 8 & 8 & 9 \\
-2 & 0 & 4 & 4 & 0 & 1 \\
-2 & 1 & 10 & 8 & 0 & 1 \\
-2 & 1 & 6 & 4 & 0 & 1 \\
-2 & 0 & 8 & 8 & 0 & 1 \\
-2 & 0 & 0 & 0 & 0 & 1 \\
-2 & 0 & 4 & 4 & 0 & 1 \\
-2 & 1 & 10 & 8 & 0 & 1 \\
-2 & 1 & 2 & 0 & 0 & 1 \\
-10 & 9 & 4 & 0 & 0 & 1 \\
-2 & 0 & 0 & 0 & 0 & 1 \\
-2 & 0 & 4 & 4 & 0 & 1 \\
-10 & 8 & 8 & 8 & 8 & 9
-\end{pmatrix}
-```
+
+
 For solving a known maze, [Wikipedia](https://en.wikipedia.org/wiki/Maze-solving_algorithm) is a good starting point for maze solving algorithms.
 Here it is useful, to represent a maze as a graph $\mathcal G$, where the edges correspond to the cells and vertices represent connected cells:
 ![ImgMaze2Graph](images/maze2graph.png)
@@ -530,6 +526,32 @@ The folder `maze` contains some useful helperfunctions when working with the maz
 - `isolate_unreachable_cells_and_trim.py`marks unreachable cells in the maze with `(1111)` and trims the maze, if all outer cells in a row/column are non-reachable
 - `draw_ascii_maze.py` draws a maze in ascii-style in the console
 - `plot_maze.py`generates a plot of the maze
+
+
+
+## Example maze
+As a final example, lets have a look at the maze below:
+![Image3](images/maze_1_crop.jpg)
+Putting the Origin on the top left, we identify the size as $n=13$ and $m=6$.
+The matrix representation looks like this:
+```math
+\mathcal{L} = \begin{pmatrix}
+10 & 8 & 8 & 8 & 8 & 9 \\
+2 & 0 & 4 & 4 & 0 & 1 \\
+2 & 1 & 10 & 8 & 0 & 1 \\
+2 & 1 & 6 & 4 & 0 & 1 \\
+2 & 0 & 8 & 8 & 0 & 1 \\
+2 & 0 & 0 & 0 & 0 & 1 \\
+2 & 0 & 4 & 4 & 0 & 1 \\
+2 & 1 & 10 & 8 & 0 & 1 \\
+2 & 1 & 2 & 0 & 0 & 1 \\
+10 & 9 & 4 & 0 & 0 & 1 \\
+2 & 0 & 0 & 0 & 0 & 1 \\
+2 & 0 & 4 & 4 & 0 & 1 \\
+10 & 8 & 8 & 8 & 8 & 9
+\end{pmatrix}
+```
+With the functions, we can draw the maze
 
 <table>
   <thead>
@@ -589,7 +611,7 @@ The folder `maze` contains some useful helperfunctions when working with the maz
 
 
 # Testing
-If you successfully installed everything we can start testing.
+If you successfully installed everything and understood how the maze works we can start testing.
 
 ## Test Motor Functions
 The expansion board from Hiwonder controls all 4 wheels, the 2 PWM servos the camera is attached to and also allows for access to the IMU. 
