@@ -425,16 +425,7 @@ The folder `maze` contains some useful helperfunctions when working with the maz
 ## Example maze
 As a final example, lets have a look at the maze on the top left. Putting the origin on the upper left corner, we identify the size as $n=13$ and $m=6$ and get the matrix representation $\mathcal L$. Using the functions, we can draw the maze in ascii-style or plot it.
 
-<table>
-  <tr>
-    <td>
-	      <p><strong>Original Maze</strong></p>
-      <img src="images/maze_1_crop.png" alt="Original Maze" width="250">
-    </td>
-    <td>
-      <p><strong>Matrix Representation</strong></p>
-      <pre>
-\[
+```math
 \mathcal{L} = \begin{pmatrix}
 10 & 2 & 2 & 2 & 2 & 6 \\
 8 & 0 & 1 & 1 & 0 & 4 \\
@@ -451,8 +442,17 @@ As a final example, lets have a look at the maze on the top left. Putting the or
 8 & 0 & 2 & 2 & 0 & 4 \\
 9 & 1 & 1 & 1 & 1 & 5
 \end{pmatrix}
-\]
-      </pre>
+```
+
+<table>
+  <tr>
+    <td>
+	      <p><strong>Original Maze</strong></p>
+      <img src="images/maze_1_crop.png" alt="Original Maze" width="250">
+    </td>
+    <td>
+      <p><strong>Matrix Representation</strong></p>
+		      <img src="images/matrix_L.png" alt="matrixL" width="250">
     </td>
   </tr>
   <tr>
