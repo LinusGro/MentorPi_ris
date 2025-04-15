@@ -5,7 +5,7 @@ More information on the course can be found here: https://www.etit.tu-darmstadt.
 
 This repository serves as a starting base for the students participating in this year's course. 
 
-The task will be to programm a MentorPi that is set in a maze environment. Here, the MentorPi is supposed to handle different tasks. These tasks include the autonomous navigation and localization of the MentorPi in an unkown maze.
+The task will be to program a MentorPi that is set in a maze environment. Here, the MentorPi is supposed to handle different tasks. These tasks include the autonomous navigation and localization of the MentorPi in an unknown maze.
 
 Detailed information on the tasks is given internally via Moodle.
 
@@ -81,7 +81,7 @@ Before starting, some basic knowledge should be available. In case you are not f
     - rqt (e.g. `rqt_graph` )
     - For more information, see the ROS2 documentation: https://docs.ros.org/en/jazzy/index.html
  - basic knowledge about mobile robots
-    - will be teached in the lecture
+    - will be taught in the lecture
     - kinematic model of mecanum wheel drive robot (see https://www.youtube.com/watch?v=gnSW2QpkGXQ or https://www.youtube.com/watch?v=Xrc0l4TDnyw&t=91s
     - basic functionality of an IMU, LIDAR and encoders
 - General coding advice: Don't copy paste commands blindfold. Try to understand what's the purpose of the command and also read what happens in the console output (especially, when there are errors). ChatGPT can be a great help in explaining the functionality of commands, interpreting error messages, and assisting with debugging. However, **ChatGPT does not replace a thinking brain sitting in front of the laptop**, and you should always try to understand what you are typing into the console and why.
@@ -125,7 +125,7 @@ Open the Raspberry PI Imager Tool, choose `Raspberry Pi 5` under *Device* and un
 <br>
 
 ## Installing ROS2
-* Follow this guide: https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html to install ROS2 Jazzy on the Raspberry Pi 5. For development, it makes a lot of sense to also have an additional computer with ROS2 installed. This makes remotely diagnosing and controlling the robot much easier. Chose the **Desktop Install** both for the robot and, if applicable, your computer. 
+* Follow this guide: https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html to install ROS2 Jazzy on the Raspberry Pi 5. For development, it makes a lot of sense to also have an additional computer with ROS2 installed. This makes remotely diagnosing and controlling the robot much easier. Choose the **Desktop Install** both for the robot and, if applicable, your computer. 
 * Run 
 ```bash
 source /opt/ros/jazzy/setup.bash
@@ -260,7 +260,7 @@ This command can also be added to your .bashrc file. This way, your workspace is
 ```bash
 source /home/user/workspace/ros2_ws/install/local_setup.bash
 ```
-**Make sure** to change `user` to the username you chose for the robot.
+**Make sure** to change `user` to the username you choose for the robot.
 
 2. **Download the needed Packages from this repository**
     - Download all folders from the `src` folder and place it in **your** `src` folder.
@@ -325,8 +325,8 @@ After setting up the OS onto your VM, you can repeat the same process from the R
 ```bash
 ping <hostname>
 ```
-Where <hostname> must be replaced by the hostname you chose when initializing the Raspberry Pi. Make sure that the robot is powered on and connected to the same network (not eduroam as this might cause problems) as your computer. If the ping is sucessful, no further steps are required. If this ping is not successful the connection between to VM and the robot could not be established. A first step would be to set the VM's network properties to "Bridged" instead of "NAT" (default). This will expose the VM directly to the network and therefore might be solving the problem.<br>
-When using Workstation Pro there is also an option to add a virtual network interface in the settings (Edit->Virtual Network Editor->Change Settings->VMnet0). This virutal network interface can then be set to bridged and selected as the prefered network interface for the VM. If the ping is still not returned you will have to do further troubleshooting by yourself. If you cannot make this work, we recommend visiting the consultation hours.
+Where <hostname> must be replaced by the hostname you choose when initializing the Raspberry Pi. Make sure that the robot is powered on and connected to the same network (not eduroam as this might cause problems) as your computer. If the ping is successful, no further steps are required. If this ping is not successful the connection between to VM and the robot could not be established. A first step would be to set the VM's network properties to "Bridged" instead of "NAT" (default). This will expose the VM directly to the network and therefore might be solving the problem.<br>
+When using Workstation Pro there is also an option to add a virtual network interface in the settings (Edit->Virtual Network Editor->Change Settings->VMnet0). This virtual network interface can then be set to bridged and selected as the preferred network interface for the VM. If the ping is still not returned you will have to do further troubleshooting by yourself. If you cannot make this work, we recommend visiting the consultation hours.
 ### MacOS
 In general you can use any VM software you prefer. Possible solution which are available for free (for non-commerical use) are Oracle's Virtual Box (no account required) or VMWare's Fusion Pro (free account required, https://www.youtube.com/watch?v=kTO810vbF_E, select Fusion instead of Workstation). Install the VM software and set up a new VM using an ubuntu image which are e.g. available at https://releases.ubuntu.com/noble/ (for Intel silicons) or "noble-desktop-arm64.iso" at https://cdimage.ubuntu.com/daily-live/20240421/ (for Apple/ARM silicons). <br>
 If this is the first VM you have ever set up, you can find many tutorials on how to do this e.g https://www.youtube.com/watch?v=nvdnQX9UkMY for VirtualBox or https://www.youtube.com/watch?v=BHpRTVP8upg for Workstation Pro (video is 7 years old but the process is still mostly the same, Fusion is the same).<br>
@@ -334,7 +334,7 @@ After setting up the OS onto your VM, you can repeat the same process from the R
 ```bash
 ping <hostname>
 ```
-Where <hostname> must be replaced by the hostname you chose when initializing the Raspberry Pi. Make sure that the robot is powered on and connected to the same network (not eduroam as this might cause problems) as your computer. If the ping is sucessful, no further steps are required. If this ping is not successful the connection between to VM and the robot could not be established. A first step would be to set the VM's network properties to "Bridged" instead of "NAT" (default). This will expose the VM directly to the network and therefore might be solving the problem. If the ping is still not returned you will have to do further troubleshooting by yourself. If you cannot make this work, we recommend visiting the consultation hours.
+Where <hostname> must be replaced by the hostname you choose when initializing the Raspberry Pi. Make sure that the robot is powered on and connected to the same network (not eduroam as this might cause problems) as your computer. If the ping is sucessful, no further steps are required. If this ping is not successful the connection between to VM and the robot could not be established. A first step would be to set the VM's network properties to "Bridged" instead of "NAT" (default). This will expose the VM directly to the network and therefore might be solving the problem. If the ping is still not returned you will have to do further troubleshooting by yourself. If you cannot make this work, we recommend visiting the consultation hours.
 <br>
 <br>
 
@@ -365,13 +365,13 @@ https://github.com/NikHoh/apriltag-maze
 To exchange and represent different mazes, we define a maze $L$ of the size $m \times n$ using a matrix:
 
 ```math
-\mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in\{1,2,\ldots,16\}.
+\mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in\{0,1,2,\ldots,15\}.
 ```
 
 Hereby we have the column index $i\in\\{1,\ldots,n\\}$ counting in the $x$-direction and the row index $j \in\\{1,\ldots,m\\}$ counting in the $y$-direction. The value of $l_{ij}$ determines the amount of walls using a binary coding.
 
 
-Since the maze does no have to be in a rectangular shape (it can be in a L-shape, or some cornors are missing), we first determine the size $n \times m$ of the smallest surrounding rectangle of the maze. $n$ and $m$ are hereby positive integers and count the number of the baseplates in $x$ and $y$-direction.
+Since the maze does no have to be in a rectangular shape (it can be in a L-shape, or some corners are missing), we first determine the size $n \times m$ of the smallest surrounding rectangle of the maze. $n$ and $m$ are hereby positive integers and count the number of the baseplates in $x$ and $y$-direction.
 The global coordinate system's origin 𝒪 is set in one corner of the maze.
 
 Starting from the origin 𝒪, the baseplates of the maze will be numbered by a segment number $I\in\\{1, \ldots,  nm\\}$, which allows us to define the cell/segments. Like this, the baseplates of the maze will be numbered, starting from the origin 𝒪 in the $x$-direction and counting every existing, and nonexisting baseplate.
