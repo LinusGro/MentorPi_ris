@@ -414,6 +414,7 @@ Now that $n$ and $m$ are determined and the cells are numbered by $I$, we define
 For example, cell $I=5$ in the example maze has a wall in positive and negative $x$-direction and hence gets the binary coding `(0011) = 3`. We therefore set $l_{22}=3$ in the matrix representation.
 This table helps with the correspondance:
 
+
 <table border="1" cellspacing="0" cellpadding="6">
   <thead>
     <tr>
@@ -425,58 +426,58 @@ This table helps with the correspondance:
   </thead>
   <tbody>
     <tr>
-      <td>0</td><td>(0000)</td><td><pre class="cell-pre">&#43;   &#43;
+      <td>0</td><td>(0000)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;   &#43;
      
 &#43;   &#43;</pre></td>
-      <td>1</td><td>(0001)</td><td><pre class="cell-pre">&#43;   &#43;
+      <td>1</td><td>(0001)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;   &#43;
      
 &#43;---&#43;</pre></td>
-      <td>2</td><td>(0010)</td><td><pre class="cell-pre">&#43;---&#43;
+      <td>2</td><td>(0010)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;---&#43;
      
 &#43;   &#43;</pre></td>
-      <td>3</td><td>(0011)</td><td><pre class="cell-pre">&#43;---&#43;
+      <td>3</td><td>(0011)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;---&#43;
      
 &#43;---&#43;</pre></td>
     </tr>
     <tr>
-      <td>4</td><td>(0100)</td><td><pre class="cell-pre">&#43;   &#43;
+      <td>4</td><td>(0100)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;   &#43;
 |    
 &#43;   &#43;</pre></td>
-      <td>5</td><td>(0101)</td><td><pre class="cell-pre">&#43;   &#43;
+      <td>5</td><td>(0101)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;   &#43;
 |    
 &#43;---&#43;</pre></td>
-      <td>6</td><td>(0110)</td><td><pre class="cell-pre">&#43;---&#43;
+      <td>6</td><td>(0110)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;---&#43;
 |    
 &#43;   &#43;</pre></td>
-      <td>7</td><td>(0111)</td><td><pre class="cell-pre">&#43;---&#43;
-|    
-&#43;---&#43;</pre></td>
-    </tr>
-    <tr>
-      <td>8</td><td>(1000)</td><td><pre class="cell-pre">&#43;   &#43;
-|    
-&#43;   &#43;</pre></td>
-      <td>9</td><td>(1001)</td><td><pre class="cell-pre">&#43;   &#43;
-|    
-&#43;---&#43;</pre></td>
-      <td>10</td><td>(1010)</td><td><pre class="cell-pre">&#43;---&#43;
-|    
-&#43;   &#43;</pre></td>
-      <td>11</td><td>(1011)</td><td><pre class="cell-pre">&#43;---&#43;
+      <td>7</td><td>(0111)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;---&#43;
 |    
 &#43;---&#43;</pre></td>
     </tr>
     <tr>
-      <td>12</td><td>(1100)</td><td><pre class="cell-pre">&#43;   &#43;
+      <td>8</td><td>(1000)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;   &#43;
+|    
+&#43;   &#43;</pre></td>
+      <td>9</td><td>(1001)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;   &#43;
+|    
+&#43;---&#43;</pre></td>
+      <td>10</td><td>(1010)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;---&#43;
+|    
+&#43;   &#43;</pre></td>
+      <td>11</td><td>(1011)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;---&#43;
+|    
+&#43;---&#43;</pre></td>
+    </tr>
+    <tr>
+      <td>12</td><td>(1100)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;   &#43;
 |   |
 &#43;   &#43;</pre></td>
-      <td>13</td><td>(1101)</td><td><pre class="cell-pre">&#43;   &#43;
+      <td>13</td><td>(1101)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;   &#43;
 |   |
 &#43;---&#43;</pre></td>
-      <td>14</td><td>(1110)</td><td><pre class="cell-pre">&#43;---&#43;
+      <td>14</td><td>(1110)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;---&#43;
 |   |
 &#43;   &#43;</pre></td>
-      <td>15</td><td>(1111)</td><td><pre class="cell-pre">&#43;---&#43;
+      <td>15</td><td>(1111)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;---&#43;
 |   |
 &#43;---&#43;</pre></td>
     </tr>
