@@ -28,13 +28,13 @@ This repository aims to provide a reasonable starting position for ROS2 developm
    - [Setup your ROS2 Workspace](#setup-your-ros2-workspace)
    - [Set Environment Variables](#set-environment-variables)
    - [Set User Permissions](#set-user-permissions)
-- [ROS2 on an additional computer](#ros2-on-an-additional-computer)
-   - [Computer running Ubuntu](#computer-running-ubuntu)
-   - [Computer running Windows or macOS](#computer-running-windows-or-macos)
 - [The Maze](#the-maze)
 	- [Matrix representation of the maze](#matrix-representation-of-the-maze)
 	- [Example maze](#example-maze)
 	- [Implementation of the maze](#implementation-of-the-maze)
+- [ROS2 on an additional computer](#ros2-on-an-additional-computer)
+   - [Computer running Ubuntu](#computer-running-ubuntu)
+   - [Computer running Windows or macOS](#computer-running-windows-or-macos)
 - [Testing](#testing)  
    - [Test the Camera](#test-the-camera)
       - [Test the Camera with a connected Monitor](#test-the-camera-with-a-connected-monitor)
@@ -88,7 +88,7 @@ Before starting, some basic knowledge should be available. In case you are not f
 
 <div style="display: flex; gap: 10px; align-items: flex-start;">
   <img src="images/meme_chatgpt_small.png" alt="Meme" width="300"/>
-  <img src="images/robo_debugging.png" alt="Robo debugging" width="300"/>
+  <img src="images/robo_debugging.png" alt="Robo debugging" width="500"/>
 </div>
 
 
@@ -309,36 +309,6 @@ You need to restart your Raspberry Pi 5 for this rule to take effect.
 <br>
 <br>
 
-# ROS2 on an additional computer
-As mentioned before it is recommended to have an additional computer set up with ROS2 in order to use for example the visualization from rviz2 without the need of having a HDMI cable hooked to the robot at all times. Therefore an additional computer will have to be set up using ROS2. 
-<br>
-## Computer running Ubuntu
-Since the installation mentioned above is used to install ROS2 onto the Raspberry Pi, you can simply repeat the exact same steps to make ROS2 work on your system. Make sure that your PC/Laptop is allowed to communicate with other devices in the same network, otherwise you won't be able to communicate with the robot.
-<br>
-## Computer running Windows or macOS
-The shown installation is only working natively on Ubuntu therefore additional steps are necessary. You can either install ROS2 for Windows/macOS following the guides provided on docs.ros.org(not recommended) or you can use a **Virtual Machine(VM)** to emulate an Ubuntu OS on your system. **We recommend using a VM for this purpose** because the install process from the Raspberry Pi will be exactly the same.<br>
-Another possibility would be to run ROS2 from a docker container but this will limit you to GUI-less application (no rviz therefore also not recommended).
-### Windows 10/11
-In general you can use any VM software you prefer. Possible solution which are available for free (for non-commerical use) are Oracle's Virtual Box(no account required) or VMWare's Workstation Pro (free account required, https://www.youtube.com/watch?v=kTO810vbF_E). Install the VM software and set up a new VM using an ubuntu image which are e.g. available at https://releases.ubuntu.com/noble/.<br>
-If this is the first VM you have ever set up, you can find many tutorials on how to do this e.g https://www.youtube.com/watch?v=nvdnQX9UkMY for VirtualBox or https://www.youtube.com/watch?v=BHpRTVP8upg for Workstation Pro (video is 7 years old but the process is still mostly the same).<br>
-After setting up the OS onto your VM, you can repeat the same process from the Raspberry Pi to install ROS2. After installing ROS2 and all of the required dependencies you need to make sure that the VM is able to communicate with the Robot. The easiest way to ensure a connection would be to use the following command in a terminal:
-```bash
-ping <hostname>
-```
-Where <hostname> must be replaced by the hostname you choose when initializing the Raspberry Pi. Make sure that the robot is powered on and connected to the same network (not eduroam as this might cause problems) as your computer. If the ping is successful, no further steps are required. If this ping is not successful the connection between to VM and the robot could not be established. A first step would be to set the VM's network properties to "Bridged" instead of "NAT" (default). This will expose the VM directly to the network and therefore might be solving the problem.<br>
-When using Workstation Pro there is also an option to add a virtual network interface in the settings (Edit->Virtual Network Editor->Change Settings->VMnet0). This virtual network interface can then be set to bridged and selected as the preferred network interface for the VM. If the ping is still not returned you will have to do further troubleshooting by yourself. If you cannot make this work, we recommend visiting the consultation hours.
-### MacOS
-In general you can use any VM software you prefer. Possible solution which are available for free (for non-commerical use) are Oracle's Virtual Box (no account required) or VMWare's Fusion Pro (free account required, https://www.youtube.com/watch?v=kTO810vbF_E, select Fusion instead of Workstation). Install the VM software and set up a new VM using an ubuntu image which are e.g. available at https://releases.ubuntu.com/noble/ (for Intel silicons) or "noble-desktop-arm64.iso" at https://cdimage.ubuntu.com/daily-live/20240421/ (for Apple/ARM silicons). <br>
-If this is the first VM you have ever set up, you can find many tutorials on how to do this e.g https://www.youtube.com/watch?v=nvdnQX9UkMY for VirtualBox or https://www.youtube.com/watch?v=BHpRTVP8upg for Workstation Pro (video is 7 years old but the process is still mostly the same, Fusion is the same).<br>
-After setting up the OS onto your VM, you can repeat the same process from the Raspberry Pi to install ROS2. After installing ROS2 and all of the required dependencies you need to make sure that the VM is able to communicate with the Robot. The easiest way to ensure a connection would be to use the following command in a terminal:
-```bash
-ping <hostname>
-```
-Where <hostname> must be replaced by the hostname you choose when initializing the Raspberry Pi. Make sure that the robot is powered on and connected to the same network (not eduroam as this might cause problems) as your computer. If the ping is sucessful, no further steps are required. If this ping is not successful the connection between to VM and the robot could not be established. A first step would be to set the VM's network properties to "Bridged" instead of "NAT" (default). This will expose the VM directly to the network and therefore might be solving the problem. If the ping is still not returned you will have to do further troubleshooting by yourself. If you cannot make this work, we recommend visiting the consultation hours.
-<br>
-<br>
-
-
 # The Maze
 The maze can be set up modularly in size and configuration and consists of base plates and wall plates, which are placed on the base plates.
 The base plates have a size of approx 254mm x 254mm and define a segment/cell of the maze. The wall plates are made of 250mm x 170mm x 3mm MDF. With 3D printed sockets, the wall plates can be mounted on each side of a base  plate.  
@@ -529,12 +499,42 @@ With the functions, we can draw the maze:
 
 
 
+# ROS2 on an additional computer
+As mentioned before it is recommended to have an additional computer set up with ROS2 in order to use for example the visualization from rviz2 without the need of having a HDMI cable hooked to the robot at all times. Therefore an additional computer will have to be set up using ROS2. 
+<br>
+## Computer running Ubuntu
+Since the installation mentioned above is used to install ROS2 onto the Raspberry Pi, you can simply repeat the exact same steps to make ROS2 work on your system. Make sure that your PC/Laptop is allowed to communicate with other devices in the same network, otherwise you won't be able to communicate with the robot.
+<br>
+## Computer running Windows or macOS
+The shown installation is only working natively on Ubuntu therefore additional steps are necessary. You can either install ROS2 for Windows/macOS following the guides provided on docs.ros.org(not recommended) or you can use a **Virtual Machine(VM)** to emulate an Ubuntu OS on your system. **We recommend using a VM for this purpose** because the install process from the Raspberry Pi will be exactly the same.<br>
+Another possibility would be to run ROS2 from a docker container but this will limit you to GUI-less application (no rviz therefore also not recommended).
+### Windows 10/11
+In general you can use any VM software you prefer. Possible solution which are available for free (for non-commerical use) are Oracle's Virtual Box(no account required) or VMWare's Workstation Pro (free account required, https://www.youtube.com/watch?v=kTO810vbF_E). Install the VM software and set up a new VM using an ubuntu image which are e.g. available at https://releases.ubuntu.com/noble/.<br>
+If this is the first VM you have ever set up, you can find many tutorials on how to do this e.g https://www.youtube.com/watch?v=nvdnQX9UkMY for VirtualBox or https://www.youtube.com/watch?v=BHpRTVP8upg for Workstation Pro (video is 7 years old but the process is still mostly the same).<br>
+After setting up the OS onto your VM, you can repeat the same process from the Raspberry Pi to install ROS2. After installing ROS2 and all of the required dependencies you need to make sure that the VM is able to communicate with the Robot. The easiest way to ensure a connection would be to use the following command in a terminal:
+```bash
+ping <hostname>
+```
+Where <hostname> must be replaced by the hostname you choose when initializing the Raspberry Pi. Make sure that the robot is powered on and connected to the same network (not eduroam as this might cause problems) as your computer. If the ping is successful, no further steps are required. If this ping is not successful the connection between to VM and the robot could not be established. A first step would be to set the VM's network properties to "Bridged" instead of "NAT" (default). This will expose the VM directly to the network and therefore might be solving the problem.<br>
+When using Workstation Pro there is also an option to add a virtual network interface in the settings (Edit->Virtual Network Editor->Change Settings->VMnet0). This virtual network interface can then be set to bridged and selected as the preferred network interface for the VM. If the ping is still not returned you will have to do further troubleshooting by yourself. If you cannot make this work, we recommend visiting the consultation hours.
+### MacOS
+In general you can use any VM software you prefer. Possible solution which are available for free (for non-commerical use) are Oracle's Virtual Box (no account required) or VMWare's Fusion Pro (free account required, https://www.youtube.com/watch?v=kTO810vbF_E, select Fusion instead of Workstation). Install the VM software and set up a new VM using an ubuntu image which are e.g. available at https://releases.ubuntu.com/noble/ (for Intel silicons) or "noble-desktop-arm64.iso" at https://cdimage.ubuntu.com/daily-live/20240421/ (for Apple/ARM silicons). <br>
+If this is the first VM you have ever set up, you can find many tutorials on how to do this e.g https://www.youtube.com/watch?v=nvdnQX9UkMY for VirtualBox or https://www.youtube.com/watch?v=BHpRTVP8upg for Workstation Pro (video is 7 years old but the process is still mostly the same, Fusion is the same).<br>
+After setting up the OS onto your VM, you can repeat the same process from the Raspberry Pi to install ROS2. After installing ROS2 and all of the required dependencies you need to make sure that the VM is able to communicate with the Robot. The easiest way to ensure a connection would be to use the following command in a terminal:
+```bash
+ping <hostname>
+```
+Where <hostname> must be replaced by the hostname you choose when initializing the Raspberry Pi. Make sure that the robot is powered on and connected to the same network (not eduroam as this might cause problems) as your computer. If the ping is sucessful, no further steps are required. If this ping is not successful the connection between to VM and the robot could not be established. A first step would be to set the VM's network properties to "Bridged" instead of "NAT" (default). This will expose the VM directly to the network and therefore might be solving the problem. If the ping is still not returned you will have to do further troubleshooting by yourself. If you cannot make this work, we recommend visiting the consultation hours.
+<br>
+<br>
+
+
 
 
 
 
 # Testing
-If you successfully installed everything and understood how the maze works we can start testing.
+If you successfully installed everything, set up ROS2 on your additional computer and understood how the maze works, we can start testing.
 
 ## Test Motor Functions
 The expansion board from Hiwonder controls all 4 wheels, the 2 PWM servos the camera is attached to and also allows for access to the IMU. 
@@ -849,4 +849,4 @@ you create a new **python** package. **Make sure** you are inside your build fol
 
 
 # Contributions
-We thank M. Schmiegel and J. Baur for setting up this repository.
+We thank M. Schmiegel, J. Baur and P. Bodynek for helping with this repository.
