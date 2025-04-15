@@ -332,13 +332,13 @@ https://github.com/NikHoh/apriltag-maze
 
 ## Matrix representation of the maze
 
-To exchange and represent different mazes, we define a maze $L$ of the size $m \times n$ using a matrix:
+To exchange and represent different mazes, we define a maze $L$ of the size $n \times m$ using a matrix with a 4 Bit encoding:
 
 ```math
-\mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in\{0,1,2,\ldots,15\}.
+\mathcal L = [l_{ij}]\in \mathbb{B}^{n\times m} \quad \text{with} \quad \mathbb{B}=\\{b\in\mathbb{Z}\,\mid\,0\leq b \leq 2^4-1=15\\}.
 ```
-
-Hereby we have the column index $i\in\\{1,\ldots,n\\}$ counting in the $x$-direction and the row index $j \in\\{1,\ldots,m\\}$ counting in the $y$-direction. The value of $l_{ij}$ determines the amount of walls using a binary coding.
+The matrix entries are hereby integers `l_{ij}\in\mathbb{B}=\{0,1,2,\ldots,15\}` with `\mathbb B`being the 4 bit range of values.
+The column index $i\in\\{1,\ldots,n\\}$ is counting in the $x$-direction and the row index $j \in\\{1,\ldots,m\\}$ is counting in the $y$-direction. The value of $l_{ij}$ determines the amount of walls using a 4 bit coding.
 
 
 Since the maze does no have to be in a rectangular shape (it can be in a L-shape, or some corners are missing), we first determine the size $n \times m$ of the smallest surrounding rectangle of the maze. $n$ and $m$ are hereby positive integers and count the number of the baseplates in $x$ and $y$-direction.
