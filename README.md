@@ -114,30 +114,28 @@ To exchange and represent different mazes, we define a maze $L$ of the size $m \
 \mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in\{1,2,\ldots,16\}.
 ```
 
-Hereby we have the column index $i\in\{1,\ldots,n\}$ counting in the $x$-direction and the row index $j \in\{1,\ldots,m\}$ counting in the $y$-direction. The value of $l_{ij}$ determines the amount of walls using a binary coding.
+Hereby we have the column index $i\in`\{1,\ldots,n\}`$ counting in the $x$-direction and the row index $j \in`\{1,\ldots,m\}`$ counting in the $y$-direction. The value of $l_{ij}$ determines the amount of walls using a binary coding.
 
 
 Since the maze does no have to be in a rectangular shape (it can be in a L-shape, or some cornors are missing), we first determine the size $n \times m$ of the smallest surrounding rectangle of the maze. $n$ and $m$ are hereby positive integers and count the number of the baseplates in $x$ and $y$-direction.
 The global coordinate system's origin 𝒪 is set in one corner of the maze.
 
-Starting from the origin 𝒪, the baseplates of the maze will be numbered by a segment number $I\in\{1, \ldots,  nm\}$, which allows us to define the cell/segments. Like this, the baseplates of the maze will be numbered, starting from the origin 𝒪 in the $x$-direction and counting every existing, and nonexisting baseplate.
+Starting from the origin 𝒪, the baseplates of the maze will be numbered by a segment number $I\in`\{1, \ldots,  nm\}`$, which allows us to define the cell/segments. Like this, the baseplates of the maze will be numbered, starting from the origin 𝒪 in the $x$-direction and counting every existing, and nonexisting baseplate.
 
 ![img_mazenumbered](images/maze_numbered.png)
 *3x3 maze with $n=3, m=3$ and the numbered cells $I= 1,2,\ldots,9$*
 
-In the case, that some outer cells are missing, we still iterate through all *missing* baseplates. For example in this maze, we added some walld and now cells with Index $I=\{4,7,9\}$ are not part of the maze, but we still get the same numbering:
+In the case, that some outer cells are missing, we still iterate through all *missing* baseplates. For example in this maze, we added some walls and now cells with Index $I=`\{4,7,9\}`$ are not part of the maze, but we still get the same numbering:
 
 ```
 
-0--> y
-|
-v	+----+----+----+
-	|  1 |  4 |  7 |
-x	+    +----+----+
- 	|  2    5    8 |
-	+    +----+----+
-	|  3    6 |  9 | 
-	+----+----+----+
+	+---+---+---+
+	| 1 | 4 | 7 |
+	+   +---+---+
+ 	| 2   5   8 |
+	+   +---+---+
+	| 3   6 | 9 | 
+	+---+---+---+
 
 ```
 
@@ -146,7 +144,7 @@ We can calculate the indices $i,j$ given the segment number $I$ by
 ```math
 I = (j-1)n+i.
 ```
-We also get segment number  $I$ given the indices $i,j$ by\
+We also get segment number  $I$ given the indices $i,j$ by
 ```math
 i=((I-1)\mod n)+1 \qquad \qquad j = \Big\lfloor \frac{I-1}n \Big\rfloor + 1.
 ```
@@ -162,7 +160,74 @@ Now that $n$ and $m$ are determined and the cells are numbered by $I$, we define
 (1111) - cell is not part of the maze
 ```
 For example, cell $I=5$ in the example maze has a wall in positive and negative $x$-direction and hence gets the binary coding `(0011) = 3`. We therefore set $l_{22}=3$ in the matrix representation.
+This table helps with the correspondance:
+```
+0 = (000)
+	+   +
+	
+	+   +
+1 = (0001)
+	+   +
+	    
+	+---+
+2 = (0010)
+	+---+
+	    
+	+   +
+3 = (0011)
+	+---+
+	    
+	+---+
+4 = (0100)
+	+   +
+	    |
+	+   +
+5 = (0101)
+	+   +
+	    |
+	+---+
+6 = (0110)
+	+---+
+	    |
+	+   +
+7 = (0111)
+	+---+
+	    |
+	+---+
+8 = (1000)
+	+   +
+	|   
+	+   +
+9 = (1001)
+	+   +
+	|   
+	+---+
+10 = (1010)
+	+---+
+	|   
+	+   +
+11 = (1011)
+	+---+
+	|   
+	+---+
+12 = (1100)
+	+   +
+	|   |
+	+   +
+13 = (1101)
+	+   +
+	|   |
+	+---+
+14 = (1110)
+	+---+
+	|   |
+	+   +
+15 = (1111)
+	+---+
+	|   |
+	+---+
 
+```
 
 Important notes: A maze and its representation is valid, if
 - it is closed, i.e. every outer wall exist - there is no way *in* or *out* of the maze.
@@ -170,7 +235,7 @@ Important notes: A maze and its representation is valid, if
 - The size $n x m$ of the maze is minimal, e.g. it is not filled up with *empty*, not usable cells on either side. 
 
 As a final example, lets have a look at the maze below:
-![Image3](images/maze_1.jpg)
+![Image3](images/maze_1_crop.jpg)
 Putting the Origin on the top left, we identify the size as $n=13$ and $m=6$.
 The matrix representation looks like this:
 ```math
@@ -190,7 +255,68 @@ The matrix representation looks like this:
 10 & 8 & 8 & 8 & 8 & 9
 \end{pmatrix}
 ```
+For solving a known maze, [Wikipedia](https://en.wikipedia.org/wiki/Maze-solving_algorithm) is a good starting point for maze solving algorithms.
+Here it is useful, to represent a maze as a graph $\mathcal G$, where the edges correspond to the cells and vertices represent connected cells:
+![ImgMaze2Graph](images/maze2graph.png)
+## Implementation of the maze
+The folder `maze` contains some useful helperfunctions when working with the mazes:
+- `generate_random_maze.py` generates a random maze given a specific size and filling factor
+- `ascii_to_L.py` generates an maze L given a drawn maze in ascii-style in a `.txt`-file.
+	- 3 dashes `---` represent a horizontal wall
+	- 3 empty spaces `␣␣␣` represents the absence of a horizontal wall
+	- `|` represents a vertical wall
+	- `+`represents the corner of a cell
+	- Important: You cant use tabs, use blank space characters!
+- `validate_maze.py`checks if a maze L is valid
+	- all entries in L are in `[0,...,15]`
+	- if a wall exists on one cell, it must exist on the neighboring cell
+	- all nonreachable cells are marked with `(1111)` 
+	- all outer walls exist
+	- checks, if the maze is minimum size or if it can be trimmed, ie if all cells in an outer row/column are non-reachable
+- `isolate_unreachable_cells_and_trim.py`marks unreachable cells in the maze with `(1111)` and trims the maze, if all outer cells in a row/column are non-reachable
+- `draw_ascii_maze.py` draws a maze in ascii-style in the console
+- `plot_maze.py`generates a plot of the maze
 
+<table>
+  <tr>
+    <td>
+      <pre style="font-family: monospace">
++---+---+---+---+---+---+
+|                       |
++   +   +   +   +   +   +
+|                       |
++   +   +---+---+   +   +
+|       |               |
++   +   +   +   +   +   +
+|       |               |
++   +   +---+---+   +   +
+|                       |
++   +   +   +   +   +   +
+|                       |
++---+---+   +   +---+---+
+|                       |
++   +   +   +   +   +   +
+|                       |
++   +   +---+---+   +   +
+|               |       |
++   +   +   +   +   +   +
+|               |       |
++---+---+   +   +   +   +
+|                       |
++   +   +   +   +   +   +
+|                       |
++   +   +---+---+   +   +
+|                       |
++   +   +   +   +   +   +
+|                       |
++---+---+---+---+---+---+
+      </pre>
+    </td>
+    <td>
+      <img src="images/maze_plotted.png" alt="Maze image" />
+    </td>
+  </tr>
+</table>
 
 
 # Basic Setup
