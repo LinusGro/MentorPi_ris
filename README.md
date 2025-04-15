@@ -414,19 +414,6 @@ Now that $n$ and $m$ are determined and the cells are numbered by $I$, we define
 For example, cell $I=5$ in the example maze has a wall in positive and negative $x$-direction and hence gets the binary coding `(0011) = 3`. We therefore set $l_{22}=3$ in the matrix representation.
 This table helps with the correspondance:
 
-<style>
-  .cell-pre {
-    font-family: monospace;
-    font-size: 13px;
-    line-height: 1.2;
-    display: block;
-    width: 5ch;
-    height: 3.5em;
-    white-space: pre;
-    margin: 0;
-  }
-</style>
-
 <table border="1" cellspacing="0" cellpadding="6">
   <thead>
     <tr>
