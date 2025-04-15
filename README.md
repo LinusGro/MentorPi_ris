@@ -423,9 +423,7 @@ The folder `maze` contains some useful helperfunctions when working with the maz
 
 
 ## Example maze
-As a final example, lets have a look at the maze below:
-![Image3](images/maze_1_crop.png)
-Putting the Origin on the top left, we identify the size as $n=13$ and $m=6$.
+As a final example, lets have a look at the maze on the left. Putting the Origin on the top left, we identify the size as $n=13$ and $m=6$.
 The matrix representation looks like this:
 ```math
 \mathcal{L} = \begin{pmatrix}
@@ -445,11 +443,12 @@ The matrix representation looks like this:
 9 & 1 & 1 & 1 & 1 & 5
 \end{pmatrix}
 ```
-With the functions, we can draw the maze:
+With the functions, we can draw the maze in ascii-style or plotted:
 
 <table>
   <thead>
     <tr>
+      <th>Original Image</th>
       <th>Maze ASCII Style</th>
       <th>Maze Plotted</th>
     </tr>
@@ -457,7 +456,10 @@ With the functions, we can draw the maze:
   <tbody>
     <tr>
       <td>
-        <pre style="font-family: monospace">
+        <img src="images/maze_1_crop.png" alt="Original Maze" width="200">
+      </td>
+      <td>
+        <pre style="font-family: monospace; font-size: 12px;">
 +---+---+---+---+---+---+
 |                       |
 +   +   +   +   +   +   +
@@ -490,7 +492,7 @@ With the functions, we can draw the maze:
         </pre>
       </td>
       <td>
-        <img src="images/maze_plotted.png" alt="Maze image" style="max-width: 100%;">
+        <img src="images/maze_plotted.png" alt="Plotted Maze" width="200">
       </td>
     </tr>
   </tbody>
