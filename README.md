@@ -412,77 +412,10 @@ Now that $n$ and $m$ are determined and the cells are numbered by $I$, we define
 (1111) - cell is not part of the maze
 ```
 For example, cell $I=5$ in the example maze has a wall in positive and negative $x$-direction and hence gets the binary coding `(0011) = 3`. We therefore set $l_{22}=3$ in the matrix representation.
-This table helps with the correspondance:
+This lookup table helps with the correspondance:
 
+![Maze cell lookup table](images/maze_cell_table.png)
 
-<table border="1" cellspacing="0" cellpadding="6">
-  <thead>
-    <tr>
-      <th>Idx</th><th>Bin</th><th>Cell</th>
-      <th>Idx</th><th>Bin</th><th>Cell</th>
-      <th>Idx</th><th>Bin</th><th>Cell</th>
-      <th>Idx</th><th>Bin</th><th>Cell</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td><td>(0000)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;   &#43;
-     
-&#43;   &#43;</pre></td>
-      <td>1</td><td>(0001)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;   &#43;
-     
-&#43;---&#43;</pre></td>
-      <td>2</td><td>(0010)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;---&#43;
-     
-&#43;   &#43;</pre></td>
-      <td>3</td><td>(0011)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;---&#43;
-     
-&#43;---&#43;</pre></td>
-    </tr>
-    <tr>
-      <td>4</td><td>(0100)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;   &#43;
-|    
-&#43;   &#43;</pre></td>
-      <td>5</td><td>(0101)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;   &#43;
-|    
-&#43;---&#43;</pre></td>
-      <td>6</td><td>(0110)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;---&#43;
-|    
-&#43;   &#43;</pre></td>
-      <td>7</td><td>(0111)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;---&#43;
-|    
-&#43;---&#43;</pre></td>
-    </tr>
-    <tr>
-      <td>8</td><td>(1000)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;   &#43;
-|    
-&#43;   &#43;</pre></td>
-      <td>9</td><td>(1001)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;   &#43;
-|    
-&#43;---&#43;</pre></td>
-      <td>10</td><td>(1010)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;---&#43;
-|    
-&#43;   &#43;</pre></td>
-      <td>11</td><td>(1011)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;---&#43;
-|    
-&#43;---&#43;</pre></td>
-    </tr>
-    <tr>
-      <td>12</td><td>(1100)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;   &#43;
-|   |
-&#43;   &#43;</pre></td>
-      <td>13</td><td>(1101)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;   &#43;
-|   |
-&#43;---&#43;</pre></td>
-      <td>14</td><td>(1110)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;---&#43;
-|   |
-&#43;   &#43;</pre></td>
-      <td>15</td><td>(1111)</td><td><pre style="font-family: monospace; font-size: 13px; line-height: 1.2; width: 5ch; height: 3.5em; white-space: pre; margin: 0;">&#43;---&#43;
-|   |
-&#43;---&#43;</pre></td>
-    </tr>
-  </tbody>
-</table>
 
 
 
@@ -541,7 +474,7 @@ The matrix representation looks like this:
 10 & 8 & 8 & 8 & 8 & 9
 \end{pmatrix}
 ```
-With the functions, we can draw the maze
+With the functions, we can draw the maze:
 
 <table>
   <thead>
