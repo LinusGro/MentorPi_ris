@@ -368,7 +368,7 @@ To exchange and represent different mazes, we define a maze $L$ of the size $m \
 \mathcal L = [l_{ij}] \quad \text{with} \quad l_{ij}\in\{1,2,\ldots,16\}.
 ```
 
-Hereby we have the column index $i\in\\{1,\ldots,n\\}$ counting in the $x$-direction and the row index $j \in\\{1,\ldots,m\\\$ counting in the $y$-direction. The value of $l_{ij}$ determines the amount of walls using a binary coding.
+Hereby we have the column index $i\in\\{1,\ldots,n\\}$ counting in the $x$-direction and the row index $j \in\\{1,\ldots,m\\}$ counting in the $y$-direction. The value of $l_{ij}$ determines the amount of walls using a binary coding.
 
 
 Since the maze does no have to be in a rectangular shape (it can be in a L-shape, or some cornors are missing), we first determine the size $n \times m$ of the smallest surrounding rectangle of the maze. $n$ and $m$ are hereby positive integers and count the number of the baseplates in $x$ and $y$-direction.
@@ -412,7 +412,9 @@ Now that $n$ and $m$ are determined and the cells are numbered by $I$, we define
 (1111) - cell is not part of the maze
 ```
 For example, cell $I=5$ in the example maze has a wall in positive and negative $x$-direction and hence gets the binary coding `(0011) = 3`. We therefore set $l_{22}=3$ in the matrix representation.
-This table helps with the correspondance:<style>
+This table helps with the correspondance:
+
+<style>
   .cell-pre {
     font-family: monospace;
     font-size: 13px;
