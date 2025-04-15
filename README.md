@@ -265,7 +265,7 @@ source /home/user/workspace/ros2_ws/install/local_setup.bash
 2. **Download the needed Packages from this repository**
     - Download all folders from the `src` folder and place it in **your** `src` folder.
 
-* **Finished file structure**  
+3. **Finished file structure**  
 The finished file structure should look like the following:
 ```bash
 |-- workspace
@@ -318,7 +318,7 @@ Our institute features two configurable mazes, each located in a different room.
 ![Img](images/maze_details.jpg)
 *(a) modular base plates (b) wall plate (c) full 3x3 maze*
 
-![Image3](images/maze_full.jpg)
+![Image3](images/maze_full_crop.png)
 *full 6x14 maze with robots driving in it*
 
 
@@ -424,7 +424,7 @@ The folder `maze` contains some useful helperfunctions when working with the maz
 
 ## Example maze
 As a final example, lets have a look at the maze below:
-![Image3](images/maze_1_crop.jpg)
+![Image3](images/maze_1_crop.png)
 Putting the Origin on the top left, we identify the size as $n=13$ and $m=6$.
 The matrix representation looks like this:
 ```math
