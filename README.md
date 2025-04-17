@@ -312,7 +312,7 @@ You need to restart your Raspberry Pi 5 for this rule to take effect.
 # The Maze
 The maze can be set up modularly in size and configuration and consists of base plates and wall plates, which are placed on the base plates.
 The base plates have a size of approx 254mm x 254mm and define a segment/cell of the maze. The wall plates are made of 250mm x 170mm x 3mm MDF. With 3D printed sockets, the wall plates can be mounted on each side of a base  plate.  
-Our institute features two configurable mazes, each located in a different room. The shape of the maze can be freely chosen—whether square, rectangular, L-shaped, or any other form. The only requirements are that all outer walls must be in place and the maze remains fully connected, ensuring there are no isolated areas. 
+Our institute features two configurable mazes, each located in a different room. The shape of the maze can be freely chosen—whether square, rectangular, L-shaped, or any other form.
 
 
 ![Img](images/maze_details.jpg)
