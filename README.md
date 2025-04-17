@@ -326,21 +326,15 @@ The maze can be set up modularly in size and configuration and consists of base 
 The base plates have a size of approx 254mm x 254mm and define a segment/cell of the maze. The wall plates are made of 250mm x 170mm x 3mm MDF. With 3D printed sockets, the wall plates can be mounted on each side of a base  plate.  
 Our institute features two configurable mazes, each located in a different room. The shape of the maze can be freely chosen—whether square, rectangular, L-shaped, or any other form.
 
-
 ![Img](images/maze_details.jpg)
 *(a) modular base plates (b) wall plate (c) full 3x3 maze*
 
 ![Image3](images/maze_full_crop.png)
 *full 6x14 maze with robots driving in it*
 
-
-
-
 Some wall plates of the maze are laser-engraved with recursive AprilTags - these can be ignored! They were used in last years project seminar by the robot to localize itself.
 More information on the arena, e.g. on size of the base and wall plates can be found in a separate repository:
-
 https://github.com/NikHoh/apriltag-maze
-
 
 ## Matrix representation of the maze
 
@@ -351,7 +345,6 @@ To exchange and represent different mazes, we define a maze $L$ of the size $n \
 ```
 The matrix entries are hereby integers $l_{ij}\in\mathbb{B}=\\{0,1,\ldots,15\\}$ with $\mathbb B$ being the 4 bit range of values.
 The column index $i\in\\{1,\ldots,n\\}$ is counting in the $x$-direction and the row index $j \in\\{1,\ldots,m\\}$ is counting in the $y$-direction. The value of $l_{ij}$ determines the amount of walls of a cell using a 4 bit coding, which will be explained below.
-
 
 Since the maze does no have to be in a rectangular shape (it can be in a L-shape, or some corners are missing), we first determine the size $n \times m$ of the smallest surrounding rectangle of the maze. $n$ and $m$ are hereby positive integers and count the number of the baseplates in $x$ and $y$-direction.
 The global coordinate system's origin 𝒪 is set in one corner of the maze.
@@ -382,7 +375,6 @@ We also get segment number  $I$ given the indices $i,j$ by using the modulo and 
 ```math
 i=((I-1)\mod n)+1 \qquad \qquad j = \Big\lfloor \frac{I-1}n \Big\rfloor + 1.
 ```
-
 
 Now that $n$ and $m$ are determined and the cells are numbered by $I$, we define the value of the cell $l_{ij}=\ldots$ using a binary coding:
 ```
