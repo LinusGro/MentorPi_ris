@@ -93,18 +93,6 @@ Before starting, some basic knowledge should be available. In case you are not f
 
 
 
-## The Maze
-The maze can be set up modularly in size and configuration and consists of base plates and wall plates. 
-Our institute features two configurable mazes, each located in a different room. The shape of the maze can be freely chosen—whether square, rectangular, L-shaped, or any other form. The only requirements are that all outer walls must be in place and the maze remains fully connected, ensuring there are no isolated areas. The global coordinate system's origin is set in one corner of the maze.
-
-![Image3](images/Labyrinth_cut.JPG)
-
-
-Some wall plates of the maze are laser-engraved with recursive AprilTags - these can be ignored! (They were used in last years project seminar by the robot to localize itself).
-More information on the arena, e.g. on size of the base and wall plates can be found in a separate repository:
-
-https://github.com/NikHoh/apriltag-maze
-
 # Basic Setup
 * In this chapter, the basic setup of the robot is explained. You will install Linux, ROS2 and all necessary drivers for the motors, servos, camera and LIDAR on the Raspberry Pi 5 of the robot.
 `Ubuntu 24.04` together with `ROS2 Jazzy` is used in this project.
