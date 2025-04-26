@@ -30,6 +30,7 @@ This repository aims to provide a reasonable starting position for ROS2 developm
 - [The Maze](#the-maze)
 	- [Matrix representation of the maze](#matrix-representation-of-the-maze)
 	- [Example maze](#example-maze)
+   	- [ROS2 datatype for the maze](#ros2-datatype-for-the-maze)
 	- [Implementation of the maze](#implementation-of-the-maze)
 - [ROS2 on an additional computer](#ros2-on-an-additional-computer)
    - [Computer running Ubuntu](#computer-running-ubuntu)
@@ -393,6 +394,29 @@ For solving a known maze, [Wikipedia](https://en.wikipedia.org/wiki/Maze-solving
 Here it is useful, to represent a maze as a graph $\mathcal G$, where the edges correspond to the cells and vertices represent connected cells:
 ![ImgMaze2Graph](images/maze2graph.png)
 
+## ROS2 datatype for the maze
+The package maze interface contains the definiton of the datatype 'RosMaze.msg':
+```cpp
+uint8 n
+uint8 m
+int16 start_idx
+int16 end_idx
+uint8 start_orientation
+uint8[] l
+```
+as well as the service interface 'GetRosMaze.srv':
+```cpp
+int8 maze_nr
+---
+maze_interface/RosMaze maze
+```
+The maze_publisher_node package contains a node that acts as a ROS2 server. Upon receiving a request containing the maze ID, it will respond with a RosMaze.msg with the corresponding maze. If the ID is invalid it will respond with a message where all values are 0. 
+This node will be used on exam day to provide the maze data for task 1. You can use the node to test your implementation of a client for the service. The node can be started with: 
+```bash
+ros2 run maze_publisher_node maze_server
+```
+An example file is already added to the package (1.maze). The files are organized line-by-line. The first lines are length n, width m, start_idx, end_idx, start_orientation. All lines starting from line 5 correspond to the matrix L mentioned earlier.
+
 ## Implementation of the maze
 The folder `maze` contains some useful helperfunctions when working with the mazes:
 - `generate_random_maze.py` generates a random maze given a specific size and filling factor
@@ -412,6 +436,12 @@ The folder `maze` contains some useful helperfunctions when working with the maz
 - `draw_ascii_maze.py` draws a maze in ascii-style in the console
 - `plot_maze.py`generates a plot of the maze
 - `test_maze_functions.py` gives an example on how to use the functions
+- `L_to_rosfile.py` generates a .maze file that is compatible with the maze publisher node
+- `rosfile_to_L.py` reads a .maze file and extracts the matrix L from the file
+
+<br>
+
+
 
 
 ## Example maze
