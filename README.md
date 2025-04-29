@@ -397,12 +397,12 @@ Here it is useful, to represent a maze as a graph $\mathcal G$, where the edges 
 ## ROS2 datatype for the maze
 The package maze interface contains the definiton of the datatype 'RosMaze.msg':
 ```cpp
-uint8 n
-uint8 m
-int16 start_idx
-int16 end_idx
-uint8 start_orientation
-uint8[] l
+uint8 n 		// x-dimension of the maze
+uint8 m			// y-dimension of the maze
+int16 start_idx		// Index I of the starting cell
+int16 end_idx		// Index I of the goal/end cell
+uint8 start_orientation	// robots orientation of the start (4-bit encoding for +-x, +-y dirction)
+uint8[] l		// matrix entries l_ij, listed by I={1,...,nm}
 ```
 as well as the service interface 'GetRosMaze.srv':
 ```cpp
@@ -415,7 +415,7 @@ This node will be used on exam day to provide the maze data for task 1. You can 
 ```bash
 ros2 run maze_publisher_node maze_server
 ```
-An example file is already added to the package (1.maze). The files are organized line-by-line. The first lines are length n, width m, start_idx, end_idx, start_orientation. All lines starting from line 5 correspond to the matrix L mentioned earlier.
+An example file is already added to the package (1.maze). The files are organized line-by-line. The first lines are ```n``` , ```m```, ```start_idx```, ```end_idx```, ```start_orientation```. All lines starting from line 5 correspond to the matrix ```L``` mentioned earlier, listed by the cell index ```I```.
 
 ## Implementation of the maze
 The folder `maze` contains some useful helperfunctions when working with the mazes:
@@ -662,16 +662,19 @@ You can calibrate the image with the ROS2 package `camera-calibration`. First, m
 ```bash
 ros2 launch peripherals usb_cam.launch.py
 ```
-Follow this tutorial on camera calibration: https://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration  
+Follow this tutorial on camera calibration:
+ https://wiki.ros.org/camera_calibration/Tutorials/MonocularCalibration  
+
+*Note: In the lab we have big wooden checkerboards to calibrate your camera with the properties: N = 9, M = 7, X = 0.1.*
+
 The correct command for our workspace is (you might want to understand what --remap means because you will most certainly encounter it again):
 ```bash
 ros2 run camera_calibration cameracalibrator --size MxN --square X --ros-args --remap image:=/ascamera/camera_publisher/rgb0/image --remap camera:=/ascamera --remap camera/set_camera_info:=/usb_cam/set_camera_info
 ```
 Make sure to replace **M** with the vertical dimension of your calibration checkerboard and **N** with the horizontal dimension of your calibration checkerboard. **X** is the length of one square of the checkerboard in meters. Clicking on Upload will save the calibration file at the correct place. If everything works correctly, you can see where the file was saved in the command window in which `usb_cam` is running.
+
 <br>
-The checkerboads available at the lab have the properties: N=9, M=7 and X=0.1
-<br>
-<br>
+
 
 ### Rectification Pipeline
 As already discussed, we will use the `image_proc` package to rectify our raw image the `usb_cam` node provides. This is easiest with a launch script from the `peripherals` package, which launches both the `usb_cam` node and the `image_proc` node. So before running, make sure the `usb_cam` is not already running on its own.
@@ -695,6 +698,9 @@ The AprilTag detection should now be working. To verify, place the cube in front
 ros2 topic echo /apriltag_detections
 ```
 <br>
+
+![ImgCube](images/cubes.jpg)
+*Cubes of different color with the AprilTags on the sides. All cubes have the same AprilTags.*
 
 ## Test the LIDAR
 To test the LIDAR, you need the `controller` node again:
