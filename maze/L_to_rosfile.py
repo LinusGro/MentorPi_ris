@@ -16,8 +16,8 @@ def save_maze_to_file(L, filename):
         print("Error: Inputs must be integers.")
         return
 
-    # --- Flatten the maze ---
-    flat_L = [cell for row in L for cell in row]
+    # --- Flatten the maze in column-major order ---
+    flat_L = [L[i][j] for j in range(m) for i in range(n)]
 
     # --- Write to file ---
     with open(filename, 'w') as f:

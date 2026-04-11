@@ -14,6 +14,7 @@ def load_maze_from_file(filename):
         raise ValueError(f"Expected {expected_elements} maze elements, but found {actual_elements}.")
 
     flat_L = list(map(int, lines[5:]))
-    L = [flat_L[i * m:(i + 1) * m] for i in range(n)]
+    # flat_L is column-major: element at row i, col j is flat_L[j*n + i]
+    L = [[flat_L[j * n + i] for j in range(m)] for i in range(n)]
 
     return L

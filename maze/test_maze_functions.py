@@ -4,6 +4,8 @@ from isolate_unreachable_cells_and_trim import isolate_unreachable_cells_and_tri
 from validate_maze import validate_maze
 from generate_random_maze import generate_random_maze
 from plot_maze import plot_maze
+from L_to_rosfile import save_maze_to_file
+from rosfile_to_L import load_maze_from_file
 
 if __name__ == "__main__":
     # Generate a random maze with filling factor
@@ -16,7 +18,7 @@ if __name__ == "__main__":
                  [8, 0, 2, 2, 0, 4],
                  [9, 1, 1, 1, 1, 5]]
     # or draw it ascii-style in the txt.-file
-    L_ascii = ascii_to_L("ascii_maze.txt")
+    L_ascii = ascii_to_L("maze/ascii_maze.txt")
 
     # choose L
     L = L_ascii
@@ -36,3 +38,10 @@ if __name__ == "__main__":
     # Plot the maze
     print("Plotting Maze...")
     plot_maze(L)
+
+    # Save to file and load from file
+    filename = "maze/maze_output.txt"
+    save_maze_to_file(L, filename)
+    L_loaded = load_maze_from_file(filename)
+    print("Loaded Maze from File:")
+    draw_ascii_maze(L_loaded)
