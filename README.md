@@ -1,4 +1,4 @@
-# Project Seminar 'Robotics and Computational Intelligence' 2025 presented by RIS | Technical University of Darmstadt
+# Project Seminar 'Robotics and Computational Intelligence' 2026 presented by RIS | Technical University of Darmstadt
 
 More information on the course can be found here: https://www.etit.tu-darmstadt.de/ris/lehre_ris/lehrveranstaltungen_ris/pro_robo_ris/
 
@@ -76,10 +76,11 @@ Before starting, some basic knowledge should be available. In case you are not f
     - e.g. have a look at https://learngitbranching.js.org/?locale=de_DE for learning the basics of git
 - ROS (you will use the ROS2 version Jazzy)
     - *Note: How ROS is installed on the MentorPi will be explained further below*
-    - do the tutorials at https://docs.ros.org/en/jazzy/Tutorials.html
-    - RVIZ
+    - strongly recommended tutorials (the "Beginner" chapters): https://docs.ros.org/en/jazzy/Tutorials.html
+    - RVIZ2
     - rqt (e.g. `rqt_graph` )
     - For more information, see the ROS2 documentation: https://docs.ros.org/en/jazzy/index.html
+    - or this video: https://www.youtube.com/watch?v=7TVWlADXwRw
  - basic knowledge about mobile robots
     - will be taught in the lecture
     - kinematic model of mecanum wheel drive robot (see https://www.youtube.com/watch?v=gnSW2QpkGXQ or https://www.youtube.com/watch?v=Xrc0l4TDnyw&t=91s
@@ -732,7 +733,7 @@ In `rviz2` click on *map* next to *Fixed Frame* in the *Global Options* on the l
 <br>
 
 ## Test SLAM
-**SLAM** is short for *Simultaneous Localization and Mapping* and describes the process of mapping one's surroundings while localizing oneself inside this map. It is key for autonomous navigation in an unknown environment. The `ROS2` package `slam_toolbox` can be used to perform this using live LIDAR data and a complete transformation tree. This tree describes the position of the LIDAR in respect to the main coordinate origin of the robot. This transformation tree is implemented in the `controller` package.
+**SLAM** is short for *Simultaneous Localization and Mapping* and describes the process of mapping one's surroundings while localizing oneself inside this map. It is key for autonomous navigation in an unknown environment. The `ROS2` package `slam_toolbox` can be used to perform this using live LIDAR data and a complete transformation tree. This tree describes the position of the LIDAR in respect to the main coordinate origin of the robot. This transformation tree is implemented in the `controller` package. For additional information: https://www.youtube.com/watch?v=-XU54IsG8Vo
 1. Launch the `controller` node: (if not already running)
 ```bash
 ros2 launch controller controller.launch.py
@@ -803,7 +804,13 @@ ssh user@IP-address
 ```
 **Replace** `user` with the username of your robot and `IP-address` with the IP-address of your Raspberry Pi 5. 
 
-* Additionally, installing `sshfs` on your machine will allow you to mount  remote file systems. This way you could for example mount the `workspace` folder of your Raspberry Pi 5 in your file system and conveniently edit files with any code editor you like on your machine.
+Alternatively(recommended) you can connect to the Raspberry Pi 5 from your other computer:
+```bash
+ssh user@hostname
+```
+**Replace** `user` with the username of your robot and `hostname` with the name of your system (Set during Ubuntu setup). 
+
+* Additionally, installing `sshfs` on your machine will allow you to mount remote file systems. This way you could for example mount the `workspace` folder of your Raspberry Pi 5 in your file system and conveniently edit files with any code editor you like on your machine.
 
 1. Install `sshfs` on your machine:
 ```bash
@@ -831,6 +838,9 @@ Some of the data from the ROS2 topics can be visualized via rviz2, the following
 * Laser Scan - visualizes the LIDAR sensor data
 * map - displays the generated SLAM map
 <br>
+
+## nav2
+The nav2 toolbox provides a solution for point to point navigation, given that the various configuration parameters are set properly. You can use this toolbox for navigating through the maze and build upon this foundation. (You can also use any other toolbox you might find suitable or even your own implementation.)
 
 ## Multiple Robots on the Same Network
 ROS2 topics and nodes are accessible over the entire network. When using multiple robots in the same network, you may want to separate the networks from each other. This is easily achieved via the `ROS_DOMAIN_ID`. All ROS2 clients with the same exported ID can see each other. The default ID is `0`.
