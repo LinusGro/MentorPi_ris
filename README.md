@@ -848,7 +848,9 @@ You can change the ID of your ROS2 client for example to id `10` with:
 ```bash
 export ROS_DOMAIN_ID=10
 ```
-Please use your group number as ROS_DOMAIN_ID as all groups will be using the same wifi network on site and add this environment variable to the .bashrc file. 
+Please use your doubled group number as ROS_DOMAIN_ID as all groups will be using the same wifi network on site and add this environment variable to the .bashrc file. 
+
+E.g. Group 2: ROS_DOMAIN_ID=22, Group 3: ROS_DOMAIN_ID=33, etc.
 
 ## About Standardization
 Most things in ROS2 are standardized. This means there probably is a "standard way" to expose, for example, a topic on which velocity requests can be made. For this specific task, the topic is called `/cmd_vel` and has the type `geometry_msgs/Twist`. This standard naming and typing is mostly adhered to in this workspace. This also allows, for example, easy integration with standard ROS2 packages like `slam_toolbox`. This package expects odometry information to be published on `/odom` and a laser scan published on `/scan`. Both of these, of course, also have an expected type. Because the `controller` package that exposes the `/odom` topic adheres to this standard and `ldrobot-lidar-ros2` almost adheres to this (only the topic name needs to be changed via the launch script), integration is fairly easy. All of this is to say, if you also adhere to the sometimes unwritten rules of standard naming and typing, you can make your life a lot easier. 
