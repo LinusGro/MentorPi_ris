@@ -22,4 +22,14 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
+install(
+  DIRECTORY mazes/
+  DESTINATION share/${PROJECT_NAME}/mazes
+)
+
+install(
+  DIRECTORY cubes/
+  DESTINATION share/${PROJECT_NAME}/cubes
+)
+
 ament_package()
