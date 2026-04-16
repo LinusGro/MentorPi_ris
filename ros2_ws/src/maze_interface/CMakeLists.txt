@@ -24,6 +24,8 @@ endif()
 rosidl_generate_interfaces(${PROJECT_NAME}
    "msg/RosMaze.msg"
    "srv/GetRosMaze.srv"
+   "srv/GradeMaze.srv"
+   "srv/GradeCubes.srv"
 )
 
 ament_package()
