@@ -418,6 +418,31 @@ ros2 run maze_publisher_node maze_server
 ```
 An example file is already added to the package (1.maze). The files are organized line-by-line. The first lines are ```n``` , ```m```, ```start_idx```, ```end_idx```, ```start_orientation```. All lines starting from line 5 correspond to the matrix ```L``` mentioned earlier, listed by the cell index ```I```.
 
+Additionally the maze_grading_node contains another node that acts as a ROS2 server. The grade_maze service expects a 'RosMaze.msg' as stated above as well as a maze ID. Afterwards it will grade the accuracy of the maze by counting correctly/wrongly placed walls. If the n and m dimensions do not match the real dimension the overlapping part of the maze will be graded. 
+The grade_maze service definition is:
+```cpp
+int8 maze_nr
+maze_interface/RosMaze maze
+---
+int32 score
+```
+And it can be started using:
+```bash
+ros2 run maze_grading_node grade_maze_server
+```
+The same node also provides the grade_cubes service for task 3:
+```cpp
+uint8 n
+int16[] x
+int16[] y
+uint8[] color
+---
+int16 score
+```
+n is the number of cubes that have been found in the maze.
+The colors are number encoded according to the provided task sheet. The arrays have to be used as tuples e.g. x[3], y[3] and color[3] belong to the same cube (cube 3).
+The distance is used in cm from the origin of the maze. The score will be calculated manually.
+
 ## Implementation of the maze
 The folder `maze` contains some useful helperfunctions when working with the mazes:
 - `generate_random_maze.py` generates a random maze given a specific size and filling factor
@@ -446,7 +471,7 @@ The folder `maze` contains some useful helperfunctions when working with the maz
 
 
 ## Example maze
-As a final example, lets have a look at the maze on the top left. Putting the origin on the upper left corner, we identify the size as $n=13$ and $m=6$ and get the matrix representation $\mathcal L$. Using the functions, we can draw the maze in ascii-style or plot it.
+As a final example, lets have a look at the maze on the top left. Putting the origin on the upper left corner, we identify the size as $n=14$ and $m=6$ and get the matrix representation $\mathcal L$. Using the functions, we can draw the maze in ascii-style or plot it.
 
 <table>
   <tr>
