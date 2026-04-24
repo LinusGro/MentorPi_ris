@@ -27,9 +27,4 @@ install(
   DESTINATION share/${PROJECT_NAME}/mazes
 )
 
-install(
-  DIRECTORY cubes/
-  DESTINATION share/${PROJECT_NAME}/cubes
-)
-
 ament_package()
